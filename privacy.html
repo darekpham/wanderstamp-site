@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy policy · Wanderstamp</title>
-  <meta name="description" content="How the Wanderstamp app handles your data: everything stays on your phone.">
+  <meta name="description" content="How the Wanderstamp app handles your data: guests keep everything on their phone; signing in is optional and only adds Auto backup.">
   <meta name="theme-color" content="#F26B3A">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,11 +26,13 @@
     </nav>
   </header>
 
-  <!-- Keep this page in step with the app. It describes version 1.0: state saved on the phone
-       with AsyncStorage (src/store.tsx), photos from Wikimedia (src/photos.ts), backups as files
-       (src/backup.ts) and Pro through Google Play Billing (src/pro.ts). Update it, and the date,
-       before releasing anything that changes what data leaves the phone (for example the
-       partner links in src/affiliates.ts). -->
+  <!-- Keep this page in step with the app. It describes: state saved on the phone with
+       AsyncStorage (src/store.tsx); optional Sign in with Google and Auto backup to Supabase,
+       Frankfurt (src/cloud.ts, src/sync.tsx, supabase/migrations); photos from Wikimedia
+       (src/photos.ts); backup files (src/backup.ts); Pro through Google Play Billing (src/pro.ts).
+       Update it, the date, delete-account.html and docs/play-console-answers.md before releasing
+       anything that changes what data leaves the phone (for example the partner links in
+       src/affiliates.ts). -->
   <main id="main" class="wrap doc">
     <h1>Privacy policy</h1>
     <p class="updated">Last updated: 24 November 2026 · Applies to the Wanderstamp app for Android</p>
@@ -38,25 +40,28 @@
     <div class="summary">
       <h2 style="margin-top: 0">The short version</h2>
       <ul>
-        <li>Wanderstamp has no accounts and no server. Your stamps, cities, wishlist, notes and
-          name are saved only on your phone.</li>
-        <li>We don't collect, see, sell or share your data. There are no ads, no analytics and no
-          tracking in the app.</li>
-        <li>Photos of places load from Wikimedia Commons, so Wikimedia sees the requests for those
-          pictures.</li>
-        <li>Wanderstamp Pro is bought through Google Play. Google handles the payment; we never
-          see your card details.</li>
+        <li>You can use all of Wanderstamp without an account. As a guest, your stamps, cities,
+          wishlist, notes and name are saved only on your phone, and we collect nothing about you.</li>
+        <li>Signing in with Google is optional. It turns on Auto backup: your passport is kept in
+          our database in Frankfurt (EU) and synced between your phones. We use it for nothing
+          else.</li>
+        <li>No ads, no analytics, no tracking. We never sell or share your data.</li>
+        <li>You can delete your account and its cloud copy at any time in the app (Profile →
+          Delete account) or <a href="delete-account.html">by email</a>.</li>
+        <li>Photos of places load from Wikimedia Commons. Wanderstamp Pro is bought through Google
+          Play; we never see your payment details.</li>
       </ul>
     </div>
 
     <h2>Who we are</h2>
-    <p>Wanderstamp is a travel tracker app made by an independent developer ("we", "us"). If you
-      have a question about this policy, email
-      <!-- CONTACT EMAIL: replace with FEEDBACK_EMAIL from src/appInfo.ts (also on index.html). -->
+    <p>Wanderstamp is made by <b>DTech Anh Pham</b>, a sole proprietorship registered in Poland
+      ("we", "us"). We are the controller of the personal data described here. For anything about
+      your data or this policy, email
       <a href="mailto:dndtech.biz@gmail.com?subject=Wanderstamp%20privacy">dndtech.biz@gmail.com</a>.</p>
 
-    <h2>What the app saves, and where</h2>
-    <p>Everything you put into Wanderstamp is stored in the app's own storage on your phone:</p>
+    <h2>Using Wanderstamp as a guest</h2>
+    <p>Without signing in, everything you put into Wanderstamp is stored in the app's own storage
+      on your phone:</p>
     <ul>
       <li>the countries you've stamped as visited or wanted, and the year of a visit if you give one;</li>
       <li>the cities you've marked as visited;</li>
@@ -66,15 +71,59 @@
       <li>your settings: map theme, stamp style, card design, whether you've seen the welcome
         screens, and whether Pro is unlocked.</li>
     </ul>
-    <p>None of this is sent to us or to anyone else. There is no sign-in and no cloud sync. If you
-      uninstall the app or clear its data, it is deleted from your phone, and we cannot restore it
-      because we never had a copy.</p>
+    <p>None of this is sent to us or to anyone else, and the app doesn't connect to our database at
+      all. If you uninstall the app or clear its data, it is deleted from your phone, and we can't
+      restore it because we never had a copy.</p>
 
-    <h2>Backups</h2>
-    <p>From the Profile page you can save a backup of your passport as a file and choose where it
-      goes (for example Google Drive, email or your phone's files), and load such a file again
-      later. A backup holds the items listed above, except your Pro status. It goes only where you
-      send it, and the service you choose handles it under its own privacy policy.</p>
+    <h2>Signing in and Auto backup</h2>
+    <p>Signing in is optional and works with <b>Sign in with Google</b> only. When you sign in,
+      Google confirms your account to the app, and our backend provider creates an account for you.
+      From then on, Auto backup keeps a copy of your passport in the cloud and the same passport on
+      every phone you sign in on.</p>
+    <p><b>What we store</b> for a signed-in account:</p>
+    <ul>
+      <li>your account: a user ID, the email address of your Google account and your Google
+        profile name;</li>
+      <li>your passport: the countries you've stamped (and the years), your cities, your wishlist,
+        your notes and the name on your passport card;</li>
+      <li>when the passport was last changed, so your phones can tell which copy is newest.</li>
+    </ul>
+    <p>Your app settings stay on each phone, and your Pro status is not stored in the cloud: Google
+      Play is the record of who bought Pro.</p>
+    <p><b>Why, and on what legal basis.</b> We use this data only to provide the backup and sync
+      you turned on by signing in: to keep your passport safe, restore it on a new phone and keep
+      your phones in step. The legal basis is the performance of our agreement with you (Article
+      6(1)(b) GDPR). We don't use it for advertising, profiling or analytics, and we don't sell or
+      share it.</p>
+    <p><b>Where it is kept.</b> The data is stored with <a href="https://supabase.com">Supabase</a>
+      in its Frankfurt data centre (AWS eu-central-1, Germany). Supabase processes it on our
+      behalf, as our processor, under its data processing agreement, and may not use it for its
+      own purposes. Each passport can be read only by the signed-in account it belongs to. All
+      traffic between the app and Supabase is encrypted (HTTPS). Like any online service,
+      Supabase keeps short-lived technical logs (such as sign-in times and IP addresses) for
+      security and to run the service.</p>
+    <p><b>How long.</b> We keep your account and its cloud passport until you delete the account.
+      Deleting it removes them from our database at once; copies in the provider's routine
+      backups disappear as those backups are replaced.</p>
+    <p><b>Signing out.</b> When you sign out, the app asks whether to keep your passport on this
+      phone or remove it from the phone. Either way, the cloud copy stays with your account for your
+      next sign-in until you delete the account.</p>
+    <p><b>Google.</b> Sign in with Google is provided by Google under the
+      <a href="https://policies.google.com/privacy">Google privacy policy</a>. Google tells us your
+      email address and profile name; we don't receive your Google password or access anything
+      else in your Google account.</p>
+
+    <h2>Deleting your account</h2>
+    <p>In the app, go to <b>Profile → Delete account</b>. This deletes your account (user ID, email
+      address, profile name) and the cloud copy of your passport immediately. The passport on your
+      phone stays, so you can keep using the app as a guest. If you no longer have the app, you can
+      ask us by email instead; see <a href="delete-account.html">Delete your Wanderstamp account</a>.</p>
+
+    <h2>Backup files</h2>
+    <p>From the Profile page you can also save a backup of your passport as a file and choose where
+      it goes (for example Google Drive, email or your phone's files), and load such a file again
+      later. A backup holds your passport and settings, except your Pro status. It goes only where
+      you send it, and the service you choose handles it under its own privacy policy.</p>
 
     <h2>Photos of places</h2>
     <p>City, sight and attraction pages show a photo from
@@ -84,8 +133,8 @@
       and when you open a photo's credit it asks Wikimedia Commons for the author and licence.</p>
     <p>These requests carry only what is needed to fetch the picture: the place or file name, an
       app name ("Wanderstamp") that Wikimedia asks apps to send, and, as with any internet
-      request, your phone's IP address. Nothing from your passport (your stamps, notes or name)
-      is sent. Wikimedia handles these requests under the
+      request, your phone's IP address. Nothing from your passport or account is sent. Wikimedia
+      handles these requests under the
       <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Wikimedia Foundation privacy policy</a>.
       Downloaded pictures are kept in the app's image cache on your phone so places you've opened
       also work offline.</p>
@@ -101,9 +150,9 @@
       through Google Play Billing. Google processes the payment and your payment details under
       the <a href="https://policies.google.com/privacy">Google privacy policy</a>; we do not
       receive your card details. Google Play tells the app whether you own Pro, and the app
-      remembers that on your phone. We may receive the standard order reports Google Play gives
+      remembers that on your phone. We receive the standard order reports Google Play gives
       developers (such as the date, country and amount of a purchase), which we use only to manage
-      sales, refunds and taxes.</p>
+      sales, refunds and taxes, and keep as long as tax law requires.</p>
 
     <h2>Feedback emails</h2>
     <p>"Send feedback" in the app opens your own email app with a new message. It fills in the
@@ -125,17 +174,30 @@
     </ul>
 
     <h2>Children</h2>
-    <p>Wanderstamp does not collect personal data from anyone, including children.</p>
+    <p>Wanderstamp is not aimed at children under 13, and guests' data never leaves their phone. If
+      you believe a child has signed in without a parent's consent, email us and we will delete the
+      account.</p>
 
     <h2>Your rights</h2>
-    <p>Because your data stays on your phone, you are in full control of it: you can change or
-      delete anything in the app, export it as a backup, or remove it all by uninstalling the app.
-      Under laws such as the GDPR you can also ask us about any personal data we hold about you
-      (in practice, only emails you've sent us) by writing to the address above.</p>
+    <p>As a guest, your data is only on your phone and fully in your control. If you have signed
+      in, you have the right under the GDPR to:</p>
+    <ul>
+      <li><b>access</b> the data we hold about you and get a copy of it (the app's backup file
+        already gives you your passport in a portable format);</li>
+      <li>have it <b>corrected</b>: you can change your passport in the app at any time;</li>
+      <li>have it <b>deleted</b>: Profile → Delete account, or by email;</li>
+      <li><b>restrict</b> or <b>object</b> to its use, and to <b>data portability</b>.</li>
+    </ul>
+    <p>To use any of these rights, email
+      <a href="mailto:dndtech.biz@gmail.com?subject=Wanderstamp%20privacy">dndtech.biz@gmail.com</a>
+      from the address of your account; we answer within one month. You also have the right to
+      complain to a data protection authority, in Poland the President of the Personal Data
+      Protection Office (<a href="https://uodo.gov.pl/en">UODO</a>), or the authority where you
+      live or work.</p>
 
     <h2>Changes to this policy</h2>
-    <p>If a future version of the app changes what data leaves your phone, we will update this
-      page before that version is released and change the date at the top.</p>
+    <p>If a future version of the app changes what data it collects or where it goes, we will
+      update this page before that version is released and change the date at the top.</p>
   </main>
 
   <footer>
@@ -144,6 +206,8 @@
       <nav aria-label="Footer">
         <a href="./">Home</a>
         <a href="./#contact">Contact</a>
+        <a href="delete-account.html">Delete account</a>
+        <a href="terms.html">Terms</a>
       </nav>
     </div>
   </footer>
