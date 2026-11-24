@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wanderstamp: Countries Visited</title>
+  <meta name="description" content="Stamp every country you visit on your map. Track travels, cities &amp; stats. A sticker-book travel tracker for Android.">
+  <meta name="theme-color" content="#F26B3A">
+  <meta property="og:title" content="Wanderstamp: Countries Visited">
+  <meta property="og:description" content="Stamp every country you visit on your map. Track travels, cities &amp; stats.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/icon.png">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="wrap top">
+    <a class="brand" href="./">
+      <img src="assets/icon.png" alt="" width="40" height="40">
+      Wanderstamp
+    </a>
+    <nav aria-label="Main">
+      <a class="opt" href="#features">Features</a>
+      <a class="opt" href="#pro">Pro</a>
+      <a href="#contact">Contact</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="wrap hero">
+      <div>
+        <span class="eyebrow">Travel tracker for Android</span>
+        <h1>Your travels, <span>stamped.</span></h1>
+        <p class="lead">
+          Wanderstamp is a sticker book for everywhere you've been. Tap a country on the map and a
+          stamp lands in your passport. Keep a wishlist, add the cities you've visited, and share a
+          passport card of your travels.
+        </p>
+        <div class="cta">
+          <!-- PLAY STORE BUTTON: once the app is live, replace this <span> with Google's official
+               "Get it on Google Play" badge (https://play.google.com/intl/en_us/badges/), linked to
+               https://play.google.com/store/apps/details?id=<android.package from app.json>. -->
+          <span class="play-soon" role="note">
+            <svg width="26" height="28" viewBox="0 0 26 28" aria-hidden="true">
+              <path d="M1.5 1.2 14.6 14 1.5 26.8c-.4-.3-.6-.8-.6-1.4V2.6c0-.6.2-1.1.6-1.4Z" fill="#4FA9B0"/>
+              <path d="m19 9.6-4.4 4.4-13.1-12.8c.5-.4 1.2-.5 1.9-.1L19 9.6Z" fill="#E9B44C"/>
+              <path d="m19 18.4-15.6 8.5c-.7.4-1.4.3-1.9-.1L14.6 14l4.4 4.4Z" fill="#F26B3A"/>
+              <path d="m24 15.6-5 2.8-4.4-4.4L19 9.6l5 2.8c1.2.7 1.2 2.5 0 3.2Z" fill="#FAF6EF"/>
+            </svg>
+            <span><small>Coming soon to</small><strong>Google Play</strong></span>
+          </span>
+          <a class="btn btn-ghost" href="#features">See what it does</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-icon">
+          <img src="assets/icon.png" alt="The Wanderstamp icon: a smiling globe on a postage stamp" width="1024" height="1024">
+          <svg class="postmark" viewBox="0 0 120 120" aria-hidden="true">
+            <defs><path id="ring" d="M60 60m-41 0a41 41 0 1 1 82 0a41 41 0 1 1 -82 0"/></defs>
+            <circle cx="60" cy="60" r="56" fill="rgba(250,246,239,0.92)" stroke="#F26B3A" stroke-width="4"/>
+            <circle cx="60" cy="60" r="31" fill="none" stroke="#F26B3A" stroke-width="2.5"/>
+            <text font-family="Nunito, sans-serif" font-weight="700" font-size="12" letter-spacing="2.6" fill="#F26B3A">
+              <textPath href="#ring">WANDERSTAMP · WANDERSTAMP ·</textPath>
+            </text>
+            <text x="60" y="58" text-anchor="middle" font-family="'Baloo 2', sans-serif" font-weight="800" font-size="17" fill="#F26B3A">236</text>
+            <text x="60" y="73" text-anchor="middle" font-family="Nunito, sans-serif" font-weight="700" font-size="8.5" letter-spacing="1" fill="#F26B3A">STAMPS</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <section id="features" class="band">
+      <div class="wrap">
+        <h2>Collect the world, one stamp at a time</h2>
+        <p class="section-intro">No trip logs, no receipts, no account. Just the places you've been.</p>
+        <div class="features">
+          <article class="feature">
+            <div class="dot" style="background: var(--sunset-tint)" aria-hidden="true">🗺️</div>
+            <h3>Tap the countries you've been to</h3>
+            <p>Every tap drops a stamp on your map. Spin the globe, add the cities you visited and
+              the year you first went.</p>
+          </article>
+          <article class="feature">
+            <div class="dot" style="background: var(--sun-tint)" aria-hidden="true">📈</div>
+            <h3>Watch your numbers climb</h3>
+            <p>Countries, continents, regions and the share of the world you've stamped so far.
+              Keep a wishlist of places, cities and sights for next time.</p>
+          </article>
+          <article class="feature">
+            <div class="dot" style="background: var(--teal-tint)" aria-hidden="true">🛂</div>
+            <h3>Share your passport</h3>
+            <p>Post a passport card of everywhere you've been, sized for your Instagram or Facebook
+              story, or save it to your photos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="screens">
+      <div class="wrap">
+        <h2>A look inside</h2>
+        <p class="section-intro">Your map, your passport and your card to share.</p>
+        <!-- SCREENSHOTS: put phone screenshots in site/assets/ and replace each slot's text with
+             <img src="assets/screen-map.png" alt="…">. The slots are 9:19.5, like most phones. -->
+        <div class="shots" role="list">
+          <figure class="shot" role="listitem">
+            <div class="frame">Screenshot: the stamp map</div>
+            <figcaption>The stamp map</figcaption>
+          </figure>
+          <figure class="shot" role="listitem">
+            <div class="frame">Screenshot: the passport</div>
+            <figcaption>Your passport</figcaption>
+          </figure>
+          <figure class="shot" role="listitem">
+            <div class="frame">Screenshot: the globe</div>
+            <figcaption>The globe</figcaption>
+          </figure>
+          <figure class="shot" role="listitem">
+            <div class="frame">Screenshot: a passport card</div>
+            <figcaption>A card to share</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="pro">
+      <div class="wrap">
+        <div class="pro">
+          <div>
+            <h2>Wanderstamp Pro</h2>
+            <p>Stamping, cities, the wishlist, sharing and backups are free. Pro adds a few
+              extras for collectors, as a one-time purchase on Google Play. No subscription.</p>
+            <p class="price">€4.99 <small style="font-size: 1rem; font-family: Nunito, sans-serif">once</small></p>
+          </div>
+          <ul>
+            <li><span class="tick" aria-hidden="true">✓</span><div><b>Stamp styles</b><span>Gold foil, vintage, airmail or holographic stamps.</span></div></li>
+            <li><span class="tick" aria-hidden="true">✓</span><div><b>Card designs</b><span>Scrapbook, Airmail, Ticket and Midnight passport cards to share.</span></div></li>
+            <li><span class="tick" aria-hidden="true">✓</span><div><b>Map themes</b><span>Colour your map and globe your way.</span></div></li>
+            <li><span class="tick" aria-hidden="true">✓</span><div><b>Travel stats</b><span>Your timeline by year, every continent and your cities in detail.</span></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="band">
+      <div class="wrap">
+        <div class="contact-card">
+          <h2>Say hello</h2>
+          <p>Found a bug, a missing country or a wrong fact about a place? Have an idea for a new
+            stamp? Send an email. In the app you can also use <b>Profile → Send feedback</b>.</p>
+          <!-- CONTACT EMAIL: replace both "contact@example.com" below with the address in
+               FEEDBACK_EMAIL (src/appInfo.ts). The same address is in privacy.html. -->
+          <p><a class="btn btn-primary" href="mailto:contact@example.com?subject=Wanderstamp">contact@example.com</a></p>
+          <p style="margin: 0; color: var(--ink60)">Wanderstamp is made by an independent developer. Follow along on
+            <!-- SOCIAL: replace with the real profile links once the accounts exist. -->
+            Instagram and TikTok (links coming soon).</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Wanderstamp</span>
+      <nav aria-label="Footer">
+        <a href="privacy.html">Privacy policy</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

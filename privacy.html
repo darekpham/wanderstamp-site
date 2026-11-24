@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy policy · Wanderstamp</title>
+  <meta name="description" content="How the Wanderstamp app handles your data: everything stays on your phone.">
+  <meta name="theme-color" content="#F26B3A">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="wrap top">
+    <a class="brand" href="./">
+      <img src="assets/icon.png" alt="" width="40" height="40">
+      Wanderstamp
+    </a>
+    <nav aria-label="Main">
+      <a href="./">Home</a>
+      <a href="./#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Keep this page in step with the app. It describes version 1.0: state saved on the phone
+       with AsyncStorage (src/store.tsx), photos from Wikimedia (src/photos.ts), backups as files
+       (src/backup.ts) and Pro through Google Play Billing (src/pro.ts). Update it, and the date,
+       before releasing anything that changes what data leaves the phone (for example the
+       partner links in src/affiliates.ts). -->
+  <main id="main" class="wrap doc">
+    <h1>Privacy policy</h1>
+    <p class="updated">Last updated: 24 November 2026 · Applies to the Wanderstamp app for Android</p>
+
+    <div class="summary">
+      <h2 style="margin-top: 0">The short version</h2>
+      <ul>
+        <li>Wanderstamp has no accounts and no server. Your stamps, cities, wishlist, notes and
+          name are saved only on your phone.</li>
+        <li>We don't collect, see, sell or share your data. There are no ads, no analytics and no
+          tracking in the app.</li>
+        <li>Photos of places load from Wikimedia Commons, so Wikimedia sees the requests for those
+          pictures.</li>
+        <li>Wanderstamp Pro is bought through Google Play. Google handles the payment; we never
+          see your card details.</li>
+      </ul>
+    </div>
+
+    <h2>Who we are</h2>
+    <p>Wanderstamp is a travel tracker app made by an independent developer ("we", "us"). If you
+      have a question about this policy, email
+      <!-- CONTACT EMAIL: replace with FEEDBACK_EMAIL from src/appInfo.ts (also on index.html). -->
+      <a href="mailto:contact@example.com?subject=Wanderstamp%20privacy">contact@example.com</a>.</p>
+
+    <h2>What the app saves, and where</h2>
+    <p>Everything you put into Wanderstamp is stored in the app's own storage on your phone:</p>
+    <ul>
+      <li>the countries you've stamped as visited or wanted, and the year of a visit if you give one;</li>
+      <li>the cities you've marked as visited;</li>
+      <li>your wishlist of places, cities and sights;</li>
+      <li>your notes on countries;</li>
+      <li>the name you type for your passport card (optional);</li>
+      <li>your settings: map theme, stamp style, card design, whether you've seen the welcome
+        screens, and whether Pro is unlocked.</li>
+    </ul>
+    <p>None of this is sent to us or to anyone else. There is no sign-in and no cloud sync. If you
+      uninstall the app or clear its data, it is deleted from your phone, and we cannot restore it
+      because we never had a copy.</p>
+
+    <h2>Backups</h2>
+    <p>From the Profile page you can save a backup of your passport as a file and choose where it
+      goes (for example Google Drive, email or your phone's files), and load such a file again
+      later. A backup holds the items listed above, except your Pro status. It goes only where you
+      send it, and the service you choose handles it under its own privacy policy.</p>
+
+    <h2>Photos of places</h2>
+    <p>City, sight and attraction pages show a photo from
+      <a href="https://commons.wikimedia.org">Wikimedia Commons</a>. To show it, your phone
+      downloads the picture from Wikimedia's servers. For a place without a photo chosen in
+      advance, the app looks the place up by name on <a href="https://en.wikipedia.org">Wikipedia</a>,
+      and when you open a photo's credit it asks Wikimedia Commons for the author and licence.</p>
+    <p>These requests carry only what is needed to fetch the picture: the place or file name, an
+      app name ("Wanderstamp") that Wikimedia asks apps to send, and, as with any internet
+      request, your phone's IP address. Nothing from your passport (your stamps, notes or name)
+      is sent. Wikimedia handles these requests under the
+      <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Wikimedia Foundation privacy policy</a>.
+      Downloaded pictures are kept in the app's image cache on your phone so places you've opened
+      also work offline.</p>
+
+    <h2>Sharing and saving your passport card</h2>
+    <p>When you share a passport card, Android's share menu opens and you pick the app it goes to.
+      When you save a card to your photos, Android asks you for permission to add pictures to your
+      photo library. The app only adds the card; it does not read or upload your photos.</p>
+
+    <h2>Wanderstamp Pro</h2>
+    <p>Pro is an optional one-time purchase (€4.99, or the equivalent shown in your currency)
+      that unlocks extra stamp styles, card designs, map themes and travel stats. It is bought
+      through Google Play Billing. Google processes the payment and your payment details under
+      the <a href="https://policies.google.com/privacy">Google privacy policy</a>; we do not
+      receive your card details. Google Play tells the app whether you own Pro, and the app
+      remembers that on your phone. We may receive the standard order reports Google Play gives
+      developers (such as the date, country and amount of a purchase), which we use only to manage
+      sales, refunds and taxes.</p>
+
+    <h2>Feedback emails</h2>
+    <p>"Send feedback" in the app opens your own email app with a new message. It fills in the
+      app version and your Android version so we can look into problems; you can remove them
+      before sending. If you email us, we use your address and message only to reply, and delete
+      them when they're no longer needed.</p>
+
+    <h2>Links to other places</h2>
+    <p>Some buttons open other apps or websites, such as the Play Store page to rate the app or a
+      photo's source page on Wikimedia Commons. Those services have their own privacy policies.</p>
+
+    <h2>What we don't do</h2>
+    <ul>
+      <li>No advertising and no advertising IDs.</li>
+      <li>No analytics, crash reporting or tracking tools.</li>
+      <li>No location access: you choose the places on the map yourself.</li>
+      <li>No access to your contacts, camera or microphone.</li>
+      <li>No selling or sharing of personal data with anyone.</li>
+    </ul>
+
+    <h2>Children</h2>
+    <p>Wanderstamp does not collect personal data from anyone, including children.</p>
+
+    <h2>Your rights</h2>
+    <p>Because your data stays on your phone, you are in full control of it: you can change or
+      delete anything in the app, export it as a backup, or remove it all by uninstalling the app.
+      Under laws such as the GDPR you can also ask us about any personal data we hold about you
+      (in practice, only emails you've sent us) by writing to the address above.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If a future version of the app changes what data leaves your phone, we will update this
+      page before that version is released and change the date at the top.</p>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Wanderstamp</span>
+      <nav aria-label="Footer">
+        <a href="./">Home</a>
+        <a href="./#contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
