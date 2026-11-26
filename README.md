@@ -1,7 +1,7 @@
 # Wanderstamp site
 
-The website of [Wanderstamp](https://darekpham.github.io/wanderstamp-site/), a sticker-book travel
-tracker for Android: what the app is, its [privacy policy](https://darekpham.github.io/wanderstamp-site/privacy.html)
+The website of [Wanderstamp](https://wanderstamp.app/), a sticker-book travel
+tracker for Android: what the app is, its [privacy policy](https://wanderstamp.app/privacy.html)
 and how to get in touch.
 
 Plain HTML and CSS with no build step, served by GitHub Pages from the root of `main`.
