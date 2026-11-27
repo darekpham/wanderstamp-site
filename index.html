@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Wanderstamp: Countries Visited</title>
-  <meta name="description" content="Tap the countries you've been to and collect a colourful stamp for each one. Wanderstamp is a happy little travel passport for Android.">
+  <meta name="description" content="Track the countries, cities and regions you've visited on one beautiful map, build your travel passport and share it with friends.">
   <meta name="theme-color" content="#F5F4F1">
   <meta property="og:title" content="Wanderstamp: Countries Visited">
-  <meta property="og:description" content="Collect the world, one stamp at a time. A happy little travel passport for Android.">
+  <meta property="og:description" content="Every place you've visited, on one map. Mark countries and cities, share your travel map and fill your passport with stamps.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://wanderstamp.app/assets/icon.png">
   <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -50,338 +50,220 @@
         Wanderstamp
       </a>
       <nav aria-label="Main">
-        <a class="opt" href="#how">How it works</a>
-        <a class="opt" href="#inside">Inside</a>
-        <a class="opt" href="#pro">Pro</a>
-        <a class="opt" href="#faq">FAQ</a>
         <a class="pill" href="#get">Get the app</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <!-- Hero -->
-    <div class="wrap hero">
-      <div>
-        <span class="inked">A travel passport for Android</span>
-        <h1>Collect the world, one <span class="wavy">stamp</span> at a time.</h1>
-        <p class="lead">
-          Tap the countries you've been to and watch them land in your passport as colourful
-          little stamps. It's the happiest way to remember everywhere you've been, and to dream
-          up where you'll go next.
-        </p>
-        <div class="cta">
-          <!-- PLAY STORE BUTTON: once the app is live, replace this <span> with Google's official
-               "Get it on Google Play" badge (https://play.google.com/intl/en_us/badges/), linked to
-               https://play.google.com/store/apps/details?id=<android.package from app.json>. -->
-          <span class="play-soon" role="note">
-            <svg width="26" height="28" viewBox="0 0 26 28" aria-hidden="true">
+    <!-- Hero: a short pitch and the map phone with real stamps stuck around it -->
+    <div class="hero-band">
+      <div class="wrap hero">
+        <div class="hero-copy">
+          <h1>Every place you've visited, on <span class="wavy">one map</span>.</h1>
+          <p class="lead">Mark the countries and cities you've visited, share your travel map with friends, and fill your passport with colourful stamps along the way.</p>
+          <div class="cta">
+            <!-- STORE BUTTONS: once the app is live, replace each <span> with the store's official
+                 badge (https://play.google.com/intl/en_us/badges/ and
+                 https://developer.apple.com/app-store/marketing/guidelines/), linked to its listing. -->
+            <span class="play-soon" role="note">
+            <svg width="24" height="26" viewBox="0 0 26 28" aria-hidden="true">
               <path d="M1.5 1.2 14.6 14 1.5 26.8c-.4-.3-.6-.8-.6-1.4V2.6c0-.6.2-1.1.6-1.4Z" fill="#4FA9B0"/>
               <path d="m19 9.6-4.4 4.4-13.1-12.8c.5-.4 1.2-.5 1.9-.1L19 9.6Z" fill="#E9B44C"/>
               <path d="m19 18.4-15.6 8.5c-.7.4-1.4.3-1.9-.1L14.6 14l4.4 4.4Z" fill="#F26B3A"/>
               <path d="m24 15.6-5 2.8-4.4-4.4L19 9.6l5 2.8c1.2.7 1.2 2.5 0 3.2Z" fill="#F5F4F1"/>
             </svg>
-            <span><small>Coming soon to</small><strong>Google Play</strong></span>
-          </span>
-          <a class="peek" href="#how">Take a peek <span aria-hidden="true">↓</span></a>
+              <span><small>Get it on</small><strong>Google Play</strong></span>
+            </span>
+            <span class="play-soon is-soon" role="note">
+            <svg width="24" height="26" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              <span><small>Coming soon to</small><strong>App Store</strong></span>
+            </span>
+          </div>
+          <p class="hero-note">Free to download · No account needed to start</p>
         </div>
-        <ul class="small-print">
-          <li>Free to use</li>
-          <li>No sign-up needed</li>
-          <li>No ads</li>
-        </ul>
-      </div>
-
-      <div class="hero-art">
-        <figure class="phone">
-          <div class="screen"><img src="assets/shot-map.jpg" alt="The Wanderstamp globe: visited countries in orange, wishlist countries in yellow and visited cities as teal dots" width="540" height="1040"></div>
-        </figure>
-        <img class="sticker s1" src="assets/stamp-canada.png" alt="" width="258" height="304">
-        <img class="sticker s2" src="assets/stamp-gold-japan.png" alt="" width="246" height="294">
-        <img class="sticker s3" src="assets/stamp-peru.png" alt="" width="245" height="289">
-        <div class="note"><b>43</b>countries<br>and counting!</div>
+        <div class="hero-art">
+          <div class="globe-wrap">
+            <img class="globe-hero" src="assets/obj-globe.png" alt="" width="560" height="560">
+            <canvas role="img" aria-label="A spinning Wanderstamp globe: visited countries in orange, wishlist countries in yellow and visited cities as teal dots"></canvas>
+          </div>
+          <img class="sticker s1" src="assets/stamp-canada.png" alt="" width="258" height="304">
+          <img class="sticker s2" src="assets/stamp-australia.png" alt="" width="251" height="297">
+          <div class="stat-card c1"><b>43</b>countries</div>
+          <div class="stat-card c2"><b>42</b>cities</div>
+          <div class="stat-card c3"><b>18.3%</b>of the world</div>
+        </div>
       </div>
     </div>
 
-    <!-- A row of real stamps from the app, drifting by -->
-    <div class="strip" aria-hidden="true">
-      <div class="strip-track">
-        <img src="assets/stamp-usa.png" alt="" width="247" height="291" loading="lazy">
-        <img src="assets/stamp-gold-greece.png" alt="" width="258" height="305" loading="lazy">
-        <img src="assets/stamp-brazil.png" alt="" width="246" height="292" loading="lazy">
-        <img src="assets/stamp-kenya.png" alt="" width="248" height="295" loading="lazy">
-        <img src="assets/stamp-gold-italy.png" alt="" width="246" height="294" loading="lazy">
-        <img src="assets/stamp-australia.png" alt="" width="250" height="295" loading="lazy">
-        <img src="assets/stamp-mexico.png" alt="" width="253" height="304" loading="lazy">
-        <img src="assets/stamp-gold-nepal.png" alt="" width="254" height="303" loading="lazy">
-        <img src="assets/stamp-chile.png" alt="" width="249" height="296" loading="lazy">
-        <img src="assets/stamp-south-africa.png" alt="" width="248" height="295" loading="lazy">
-        <img src="assets/stamp-gold-spain.png" alt="" width="246" height="291" loading="lazy">
-        <img src="assets/stamp-new-zealand.png" alt="" width="246" height="293" loading="lazy">
-        <!-- the same again, so the loop has no seam -->
-        <img src="assets/stamp-usa.png" alt="" width="247" height="291" loading="lazy">
-        <img src="assets/stamp-gold-greece.png" alt="" width="258" height="305" loading="lazy">
-        <img src="assets/stamp-brazil.png" alt="" width="246" height="292" loading="lazy">
-        <img src="assets/stamp-kenya.png" alt="" width="248" height="295" loading="lazy">
-        <img src="assets/stamp-gold-italy.png" alt="" width="246" height="294" loading="lazy">
-        <img src="assets/stamp-australia.png" alt="" width="250" height="295" loading="lazy">
-        <img src="assets/stamp-mexico.png" alt="" width="253" height="304" loading="lazy">
-        <img src="assets/stamp-gold-nepal.png" alt="" width="254" height="303" loading="lazy">
-        <img src="assets/stamp-chile.png" alt="" width="249" height="296" loading="lazy">
-        <img src="assets/stamp-south-africa.png" alt="" width="248" height="295" loading="lazy">
-        <img src="assets/stamp-gold-spain.png" alt="" width="246" height="291" loading="lazy">
-        <img src="assets/stamp-new-zealand.png" alt="" width="246" height="293" loading="lazy">
-      </div>
-    </div>
-
-    <!-- How it works -->
+    <!-- How it works: one panel per step, each feature shown as a thing you could hold -->
     <section id="how">
       <div class="wrap">
-        <div class="section-head reveal">
+        <div class="section-head center reveal">
           <span class="inked">How it works</span>
-          <h2>Tap, thunk, done.</h2>
-          <p>No forms, no trip logs, no homework. Just the places you've been.</p>
+          <h2>From a blank map to your travel story.</h2>
+          <p>No spreadsheets, no trip logs. Just a few happy taps.</p>
         </div>
-        <ol class="steps" style="list-style: none; padding: 0; margin: 0">
-          <li class="step reveal">
-            <h3>Spin the globe</h3>
-            <p>Find a country you've been to. Give the globe a spin, or just search for it.</p>
-          </li>
-          <li class="step reveal">
-            <h3>Tap to stamp it</h3>
-            <p>Thunk! A stamp with the year of your trip lands in your passport.</p>
-          </li>
-          <li class="step reveal">
-            <h3>Watch your world fill up</h3>
-            <p>Country by country, your map turns orange and your countries, continents and cities
-              add up.</p>
-          </li>
-        </ol>
 
-        <div class="try reveal">
-          <div>
-            <h3>Go on, give it a try</h3>
-            <p>This is how it feels in the app. Tap a blank stamp and see what happens.</p>
-          </div>
-          <div>
-            <div class="slots">
-              <button class="slot" type="button" aria-label="Stamp Peru">
-                <span class="blank">Peru</span>
-                <img src="assets/stamp-peru.png" alt="" width="245" height="289" loading="lazy">
-              </button>
-              <button class="slot" type="button" aria-label="Stamp Australia">
-                <span class="blank">Australia</span>
-                <img src="assets/stamp-australia.png" alt="" width="250" height="295" loading="lazy">
-              </button>
-              <button class="slot" type="button" aria-label="Stamp Kenya">
-                <span class="blank">Kenya</span>
-                <img src="assets/stamp-kenya.png" alt="" width="248" height="295" loading="lazy">
-              </button>
+        <div class="feats">
+          <article class="feat feat-sunset feat-phone reveal">
+            <div class="feat-copy">
+              <span class="eyebrow">Tap where you've been</span>
+              <h3 class="one-line">Watch your world fill in.</h3>
+              <p>Tap a country and it lights up. Add the cities you explored, from big capitals to
+                small towns, and see your map grow trip by trip.</p>
             </div>
-            <button class="slots-reset" type="button">Start over</button>
-          </div>
-        </div>
-      </div>
-    </section>
+            <div class="feat-art phone-art">
+              <figure class="phone">
+                <div class="screen"><div class="map-shot">
+                  <img src="assets/shot-map.jpg" alt="The map screen: tap Vietnam, mark it as visited on its page, and it fills in orange on the globe" width="540" height="1040" loading="lazy">
+                  <canvas class="fill-globe" aria-hidden="true"></canvas>
+                  <div class="sheet" aria-hidden="true">
+                    <img src="assets/shot-country.jpg" alt="" width="540" height="1040" loading="lazy">
+                    <span class="visit-btn"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>Visited</span>
+                  </div>
+                  <span class="tap" aria-hidden="true"></span>
+                </div></div>
+              </figure>
+            </div>
+          </article>
 
-    <!-- A peek inside -->
-    <section id="inside" style="padding-top: 20px">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="inked teal">A peek inside</span>
-          <h2>Little pages for big memories</h2>
-          <p>Everything you love about travelling, kept in one cheerful passport.</p>
-        </div>
-        <div class="bento">
-          <article class="card card-sunset wide reveal">
-            <div class="copy">
-              <span class="tag">Passport</span>
-              <h3>Your passport, page by page</h3>
-              <p>Your name, your home country and every stamp you've collected, all in one place.
-                Flip through it on a slow evening and relive the good bits.</p>
+          <article class="feat feat-teal feat-phone flip reveal">
+            <div class="feat-copy">
+              <span class="eyebrow">Watch your numbers grow</span>
+              <h3 class="one-line">Your travels, in numbers.</h3>
+              <p>Countries, continents, regions of the world and cities, plus how much of the planet
+                you've seen, all on your very own travel ID.</p>
             </div>
-            <figure class="phone">
-              <div class="screen"><img src="assets/shot-passport.jpg" alt="My passport: an ID card with the traveller's name and home country, 43 countries, 42 cities, 14 regions, 6 of 7 continents and the first stamps" width="540" height="1040" loading="lazy"></div>
-            </figure>
+            <div class="feat-art phone-art">
+              <figure class="phone">
+                <div class="screen"><div class="pass-shot">
+                  <img src="assets/shot-passport.jpg" alt="My passport: an ID card with the traveller's name, home country Armenia and 128 countries, then 42 cities, 14 regions, 6 of 7 continents and the first stamps" width="540" height="1040" loading="lazy">
+                  <span class="pnum p-countries" data-to="128" aria-hidden="true">128</span>
+                  <span class="pbar" data-fill="54.5%" aria-hidden="true"><i></i></span>
+                  <span class="pnum p-cities" data-to="42" aria-hidden="true">42</span>
+                  <span class="pnum p-regions" data-to="14" aria-hidden="true">14</span>
+                  <span class="pnum p-conts" data-to="6" aria-hidden="true">6</span>
+                </div></div>
+              </figure>
+            </div>
           </article>
-          <article class="card card-teal narrow reveal">
-            <span class="tag">Countries</span>
-            <h3>Every country has a story</h3>
-            <p>A photo, the top cities and sights, and room for a note about your trip.</p>
-            <figure class="phone">
-              <div class="screen"><img src="assets/shot-country.jpg" alt="Vietnam's page: a photo of Ha Long Bay, its stamp from 2013, a note and the visited cities Hanoi and Ho Chi Minh City" width="540" height="1040" loading="lazy"></div>
-            </figure>
+
+          <article class="feat feat-sun feat-phone reveal">
+            <div class="feat-copy">
+              <span class="eyebrow">Share your map</span>
+              <h3>Show the world<br>where you've been.</h3>
+              <p>Your map and stats on one beautiful card, ready for your story or the group chat in
+                a single tap.</p>
+            </div>
+            <div class="feat-art phone-art">
+              <figure class="phone">
+                <div class="screen"><div class="share-shot"><img src="assets/shot-share.jpg" alt="Share your passport: a passport card with the traveller's countries, share of the world, a world map and flags, and the card designs to choose from" width="540" height="1040" loading="lazy"><span class="sh-layer" aria-hidden="true"><span class="sh-press"></span><span class="sh-dim"></span><span class="sh-sheet"><b>Share to</b><span class="sh-apps"><span class="sh-app a1"><svg viewBox="0 0 48 48"><defs><linearGradient id="ig-g" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FEDA75"/><stop offset=".3" stop-color="#FA7E1E"/><stop offset=".6" stop-color="#D62976"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient></defs><rect width="48" height="48" rx="13" fill="url(#ig-g)"/><rect x="11" y="11" width="26" height="26" rx="8" fill="none" stroke="#fff" stroke-width="3.2"/><circle cx="24" cy="24" r="6.2" fill="none" stroke="#fff" stroke-width="3.2"/><circle cx="31.6" cy="16.4" r="1.9" fill="#fff"/></svg><i>Instagram</i></span><span class="sh-app a2"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#1877F2"/><path d="M26.6 48V30.4h5.6l.9-6.6h-6.5v-4.2c0-1.9.6-3.2 3.3-3.2h3.4v-5.9c-.6-.1-2.6-.3-4.9-.3-4.9 0-8.2 3-8.2 8.4v5.2h-5.5v6.6h5.5V48z" fill="#fff"/></svg><i>Facebook</i></span><span class="sh-app a3"><svg viewBox="0 0 48 48"><rect width="48" height="48" rx="13" fill="#111"/><text x="24" y="33.5" text-anchor="middle" font-family="Nunito, sans-serif" font-weight="800" font-size="30" fill="#fff">@</text></svg><i>Threads</i></span><span class="sh-app a4"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#25D366"/><path d="M24 11.5a12.5 12.5 0 0 0-10.8 18.8L11.6 36.5l6.4-1.6A12.5 12.5 0 1 0 24 11.5z" fill="none" stroke="#fff" stroke-width="2.8" stroke-linejoin="round"/><path d="M19.4 18.6c.4-.9 1-.9 1.4-.9h.8c.3 0 .6.1.8.7l1 2.4c.1.3.1.6-.1.9l-.8 1c-.2.2-.2.5 0 .8a8.6 8.6 0 0 0 4 3.6c.3.1.6.1.8-.1l1.1-1.3c.2-.3.5-.3.8-.2l2.4 1.1c.4.2.6.3.6.6 0 .8-.3 2-1.5 2.6-1.1.6-2.6.5-4.7-.3a13 13 0 0 1-6.2-5.7c-1-1.7-1-3.6-.4-5.2z" fill="#fff"/></svg><i>WhatsApp</i></span></span></span><span class="sh-tap t1"></span><span class="sh-tap t2"></span></span></div></div>
+              </figure>
+            </div>
           </article>
-          <article class="card card-sun half reveal">
-            <span class="tag">Sharing</span>
-            <h3>Show off where you've been</h3>
-            <p>Turn your travels into a passport card, ready for your story or the group chat.
-              Pick from five designs.</p>
-            <figure class="phone">
-              <div class="screen"><img src="assets/shot-share.jpg" alt="Share your passport: a passport card with 43 countries, 18.3% of the world, a world map and flags, and the five card designs" width="540" height="1040" loading="lazy"></div>
-            </figure>
-          </article>
-          <article class="card card-sand half reveal">
-            <span class="tag">Wishlist</span>
-            <h3>Dream up the next trip</h3>
-            <p>Save the countries, cities and sights you can't stop thinking about. Future you
-              will thank you.</p>
-            <figure class="phone">
-              <div class="screen"><img src="assets/shot-wishlist.jpg" alt="The wishlist with seven countries, including Argentina, Mongolia, Namibia and Georgia" width="540" height="1040" loading="lazy"></div>
-            </figure>
+
+          <article class="feat feat-white feat-phone flip reveal">
+            <div class="feat-copy">
+              <span class="eyebrow">A little extra fun</span>
+              <h3>Every country.<br>Its own stamp.</h3>
+              <p>Every new country drops a colourful stamp with the year you went into your passport.
+                Collecting them is half the fun.</p>
+            </div>
+            <div class="feat-art phone-art">
+              <figure class="phone">
+                <div class="screen"><div class="stamps-shot"><img src="assets/shot-stamps.jpg" alt="The stamp collection: a colourful stamp with the year for each visited country, and dashed outlines for the ones still to collect" width="540" height="1040" loading="lazy"><div class="gs-layer" aria-hidden="true"><span class="gs" style="left:7.5%;top:14.33%;width:22.87%;height:14.09%"></span><span class="gs-ring" style="left:18.94%;top:21.38%"></span><span class="gs" style="left:38.43%;top:14.33%;width:22.87%;height:14.09%"></span><span class="gs-ring" style="left:49.87%;top:21.38%"></span><span class="gs" style="left:69.44%;top:14.42%;width:22.69%;height:13.94%"></span><span class="gs-ring" style="left:80.78%;top:21.39%"></span><span class="gs" style="left:7.13%;top:30.53%;width:23.89%;height:14.62%"></span><span class="gs-ring" style="left:19.07%;top:37.84%"></span><span class="gs" style="left:38.52%;top:30.53%;width:23.43%;height:14.62%"></span><span class="gs-ring" style="left:50.23%;top:37.84%"></span><span class="gs" style="left:69.44%;top:30.87%;width:22.69%;height:13.94%"></span><span class="gs-ring" style="left:80.78%;top:37.84%"></span><span class="gs" style="left:7.59%;top:47.26%;width:22.78%;height:14.04%"></span><span class="gs-ring" style="left:18.98%;top:54.28%"></span><span class="gs" style="left:38.43%;top:47.16%;width:23.06%;height:14.23%"></span><span class="gs-ring" style="left:49.96%;top:54.27%"></span><span class="gs" style="left:69.17%;top:47.16%;width:23.15%;height:14.23%"></span><span class="gs-ring" style="left:80.75%;top:54.27%"></span><span class="gs" style="left:7.78%;top:63.7%;width:22.78%;height:14.09%"></span><span class="gs-ring" style="left:19.17%;top:70.75%"></span></div></div></div>
+              </figure>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Make it yours -->
-    <section id="yours" style="padding-top: 20px">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="inked sun">Make it yours</span>
-          <h2>Your passport, your style</h2>
-          <p>Dress up your stamps and colour in your map, just the way you like it.</p>
-        </div>
-        <div class="yours">
-          <div class="panel reveal">
-            <div class="panel-head"><h3>Stamp styles</h3><span class="pro-pill">PRO</span></div>
-            <p>Classic stamps come free. Collectors can switch to shiny gold foil and more.</p>
-            <div class="stamp-row">
-              <img src="assets/stamp-brazil.png" alt="A classic stamp for Brazil" width="246" height="292" loading="lazy">
-              <img src="assets/stamp-gold-france.png" alt="A gold foil stamp for France" width="258" height="305" loading="lazy">
-              <img src="assets/stamp-gold-greece.png" alt="A gold foil stamp for Greece" width="258" height="305" loading="lazy">
-            </div>
-            <ul class="chips">
-              <li class="on">Classic</li><li>Gold foil</li><li>Vintage</li><li>Airmail</li><li>Holographic</li>
-            </ul>
-          </div>
-          <div class="panel reveal">
-            <div class="panel-head"><h3>Map themes</h3><span class="pro-pill">PRO</span></div>
-            <p>Paint your map and globe in a new mood, from a sunny afternoon to a starry night.</p>
-            <ul class="globes">
-              <li><svg style="--sea:#EEF3F2;--land:#E7E1D6;--vis:#F26B3A;--wish:#E9B44C;--city:#1F7F86;--grid:rgba(31,127,134,.22);--border:#E3E0DA" aria-hidden="true"><use href="#globe"/></svg>Sunset</li>
-              <li><svg style="--sea:#EEF6F9;--land:#DCE7EC;--vis:#2FA6B8;--wish:#E9B44C;--city:#F26B3A;--grid:rgba(47,166,184,.25);--border:#D5E6EC" aria-hidden="true"><use href="#globe"/></svg>Ocean</li>
-              <li><svg style="--sea:#F1F5EA;--land:#E2E7D8;--vis:#3E9C6B;--wish:#F2B544;--city:#2C5F8A;--grid:rgba(62,156,107,.25);--border:#DCE3D0" aria-hidden="true"><use href="#globe"/></svg>Forest</li>
-              <li><svg style="--sea:#F5F1E6;--land:#E8E3D6;--vis:#2E3F66;--wish:#D9A93E;--city:#C9563A;--grid:rgba(46,63,102,.18);--border:#E3DCCB" aria-hidden="true"><use href="#globe"/></svg>Ink</li>
-              <li><svg style="--sea:#2A2540;--land:#4A4362;--vis:#F2C14E;--wish:#6CC3C9;--city:#F26B3A;--grid:rgba(255,255,255,.10);--border:#3A3454" aria-hidden="true"><use href="#globe"/></svg>Night</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pro: a big postage stamp -->
+    <!-- Pro: a big postage stamp with everything Pro adds -->
     <section id="pro" style="padding-top: 30px">
       <div class="wrap">
-        <div class="pro-wrap reveal">
-          <div class="perforated">
-            <div class="pro">
-              <div>
-                <span class="inked sun">For keen collectors</span>
-                <h2>Wanderstamp Pro</h2>
-                <p class="intro">A little treat for your passport. Pay once and it's yours to keep.
-                  No subscription.</p>
-                <p class="price">€4.99 <small>one time</small></p>
-                <p class="free">Everything else is free: stamping countries and cities, your
-                  wishlist, sharing and backups.</p>
-              </div>
-              <ul>
-                <li>
-                  <span class="ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="6"/><path d="m8.5 15-1.5 6 5-2.5 5 2.5-1.5-6"/></svg></span>
-                  <div><b>Stamp styles</b><span>Gold foil, vintage, airmail or holographic stamps.</span></div>
-                </li>
-                <li>
-                  <span class="ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="15" rx="2"/><path d="M8 3h11a2 2 0 0 1 2 2v12"/></svg></span>
-                  <div><b>Card designs</b><span>Scrapbook, Postcard, Ticket and Starmap cards to share.</span></div>
-                </li>
-                <li>
-                  <span class="ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 0 18c1.4 0 2-1 1.6-2.1-.5-1.3.4-2.4 1.8-2.4H18a3 3 0 0 0 3-3c0-5.5-4-10.5-9-10.5Z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10.5" cy="7" r="1"/><circle cx="15.5" cy="7.5" r="1"/></svg></span>
-                  <div><b>Map themes</b><span>Colour your map and globe your way.</span></div>
-                </li>
-                <li>
-                  <span class="ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M7 16v-5M12 16V6M17 16v-8"/></svg></span>
-                  <div><b>Travel stats</b><span>Your trips year by year, every continent and your cities in detail.</span></div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <img class="sticker" src="assets/stamp-gold-italy.png" alt="" width="246" height="294" loading="lazy">
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq">
-      <div class="wrap">
         <div class="section-head center reveal">
-          <span class="inked teal">Questions?</span>
-          <h2>Good to know</h2>
+          <span class="inked sun">And so much more</span>
+          <h2>Make every trip shine with <span class="wavy gold">Pro</span>.</h2>
+          <p>For the travellers who keep coming back to their passport: relive your years on the
+            road, paint your map your way and share your story in style.</p>
         </div>
-        <div class="faq">
-          <details class="reveal">
-            <summary>Is Wanderstamp free?</summary>
-            <p>Yes! Stamping countries and cities, your wishlist, sharing your passport card and
-              backups are all free. Pro is an optional one-time extra for keen collectors.</p>
-          </details>
-          <details class="reveal">
-            <summary>Do I need to make an account?</summary>
-            <p>Nope. Open the app and start stamping. If you'd like your passport backed up and on
-              more than one phone, you can sign in with Google whenever you like.</p>
-          </details>
-          <details class="reveal">
-            <summary>When can I get it?</summary>
-            <p>Very soon. Wanderstamp is on its way to Google Play. Want a nudge when it's out?
-              Drop us a line at <a href="mailto:dndtech.biz@gmail.com?subject=Tell%20me%20when%20Wanderstamp%20is%20out">dndtech.biz@gmail.com</a>.</p>
-          </details>
-          <details class="reveal">
-            <summary>Is it on iPhone?</summary>
-            <p>Right now Wanderstamp is made for Android phones.</p>
-          </details>
-          <details class="reveal">
-            <summary>What counts as a visit?</summary>
-            <p>That's up to you. A two-week adventure, a weekend away or a layover you fell in love
-              with: if it means something to you, stamp it.</p>
-          </details>
-          <details class="reveal">
-            <summary>A place is missing or something looks wrong?</summary>
-            <p>Please tell us! Send an email, or use <b>Profile → Send feedback</b> in the app, and
-              we'll put it right.</p>
-          </details>
+        <ul class="pro-list reveal">
+          <li><span class="pro-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16v-5M12 16V6M17 16v-8"/></svg></span><div><b>Travel stats</b><span>Relive every year: your trips on a timeline, every continent and your cities in detail.</span></div></li>
+          <li><span class="pro-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18c1.4 0 2-1 1.6-2.1-.5-1.3.4-2.4 1.8-2.4H18a3 3 0 0 0 3-3c0-5.5-4-10.5-9-10.5Z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10.5" cy="7" r="1"/><circle cx="15.5" cy="7.5" r="1"/></svg></span><div><b>Map themes</b><span>Paint your map and globe in a new mood, from a sunny afternoon to a starry night.</span></div></li>
+          <li><span class="pro-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="13" height="15" rx="2"/><path d="M8 3h11a2 2 0 0 1 2 2v12"/></svg></span><div><b>Card designs</b><span>Scrapbook, postcard, ticket, starmap and more: fresh ways to share your story.</span></div></li>
+          <li><span class="pro-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="10" r="6"/><path d="m8.5 15-1.5 6 5-2.5 5 2.5-1.5-6"/></svg></span><div><b>Stamp styles</b><span>Gold foil, vintage, airmail or holographic stamps for the trips you treasure.</span></div></li>
+        </ul>
+        <div class="pro-strip drift-rows" aria-hidden="true">
+          <div class="drift-track">
+            <img src="assets/stamp-gold-japan.png" alt="" width="248" height="295" loading="lazy">
+            <img src="assets/stamp-holo-thailand.png" alt="" width="252" height="299" loading="lazy">
+            <img src="assets/stamp-gold-italy.png" alt="" width="246" height="295" loading="lazy">
+            <img src="assets/stamp-holo-vietnam.png" alt="" width="251" height="303" loading="lazy">
+            <img src="assets/stamp-gold-greece.png" alt="" width="258" height="306" loading="lazy">
+            <img src="assets/stamp-holo-south-korea.png" alt="" width="250" height="303" loading="lazy">
+            <img src="assets/stamp-gold-japan.png" alt="" width="248" height="295" loading="lazy">
+            <img src="assets/stamp-holo-thailand.png" alt="" width="252" height="299" loading="lazy">
+            <img src="assets/stamp-gold-italy.png" alt="" width="246" height="295" loading="lazy">
+            <img src="assets/stamp-holo-vietnam.png" alt="" width="251" height="303" loading="lazy">
+            <img src="assets/stamp-gold-greece.png" alt="" width="258" height="306" loading="lazy">
+            <img src="assets/stamp-holo-south-korea.png" alt="" width="250" height="303" loading="lazy">
+            <img src="assets/stamp-gold-japan.png" alt="" width="248" height="295" loading="lazy">
+            <img src="assets/stamp-holo-thailand.png" alt="" width="252" height="299" loading="lazy">
+            <img src="assets/stamp-gold-italy.png" alt="" width="246" height="295" loading="lazy">
+            <img src="assets/stamp-holo-vietnam.png" alt="" width="251" height="303" loading="lazy">
+            <img src="assets/stamp-gold-greece.png" alt="" width="258" height="306" loading="lazy">
+            <img src="assets/stamp-holo-south-korea.png" alt="" width="250" height="303" loading="lazy">
+          </div>
+          <div class="drift-track back">
+            <img src="assets/stamp-holo-nepal.png" alt="" width="254" height="304" loading="lazy">
+            <img src="assets/stamp-gold-canada.png" alt="" width="259" height="306" loading="lazy">
+            <img src="assets/stamp-holo-turkey.png" alt="" width="255" height="307" loading="lazy">
+            <img src="assets/stamp-gold-brazil.png" alt="" width="248" height="296" loading="lazy">
+            <img src="assets/stamp-holo-india.png" alt="" width="251" height="299" loading="lazy">
+            <img src="assets/stamp-gold-egypt.png" alt="" width="246" height="291" loading="lazy">
+            <img src="assets/stamp-holo-nepal.png" alt="" width="254" height="304" loading="lazy">
+            <img src="assets/stamp-gold-canada.png" alt="" width="259" height="306" loading="lazy">
+            <img src="assets/stamp-holo-turkey.png" alt="" width="255" height="307" loading="lazy">
+            <img src="assets/stamp-gold-brazil.png" alt="" width="248" height="296" loading="lazy">
+            <img src="assets/stamp-holo-india.png" alt="" width="251" height="299" loading="lazy">
+            <img src="assets/stamp-gold-egypt.png" alt="" width="246" height="291" loading="lazy">
+            <img src="assets/stamp-holo-nepal.png" alt="" width="254" height="304" loading="lazy">
+            <img src="assets/stamp-gold-canada.png" alt="" width="259" height="306" loading="lazy">
+            <img src="assets/stamp-holo-turkey.png" alt="" width="255" height="307" loading="lazy">
+            <img src="assets/stamp-gold-brazil.png" alt="" width="248" height="296" loading="lazy">
+            <img src="assets/stamp-holo-india.png" alt="" width="251" height="299" loading="lazy">
+            <img src="assets/stamp-gold-egypt.png" alt="" width="246" height="291" loading="lazy">
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Last call -->
-    <section id="get" style="padding-top: 10px; padding-bottom: 40px">
+    <section id="get" style="padding-top: 72px; padding-bottom: 40px">
       <div class="wrap">
         <div class="last reveal">
           <svg class="waves a" viewBox="0 0 260 60" aria-hidden="true"><path d="M0 10q16-12 32 0t32 0 32 0 32 0 32 0 32 0 32 0 32 0M0 30q16-12 32 0t32 0 32 0 32 0 32 0 32 0 32 0 32 0M0 50q16-12 32 0t32 0 32 0 32 0 32 0 32 0 32 0 32 0" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>
           <svg class="waves b" viewBox="0 0 260 60" aria-hidden="true"><path d="M0 10q16-12 32 0t32 0 32 0 32 0 32 0 32 0 32 0 32 0M0 30q16-12 32 0t32 0 32 0 32 0 32 0 32 0 32 0 32 0M0 50q16-12 32 0t32 0 32 0 32 0 32 0 32 0 32 0 32 0" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>
-          <img class="sticker s1" src="assets/stamp-new-zealand.png" alt="" width="246" height="293" loading="lazy">
-          <img class="sticker s2" src="assets/stamp-gold-spain.png" alt="" width="246" height="291" loading="lazy">
-          <h2>Your next stamp is waiting.</h2>
-          <p>Wanderstamp is landing on Google Play very soon. Time to dust off those travel
-            memories.</p>
-          <!-- PLAY STORE BUTTON: swap for the official badge once the app is live (see the hero). -->
-          <span class="play-soon light" role="note">
-            <svg width="26" height="28" viewBox="0 0 26 28" aria-hidden="true">
+          <h2>Your travels deserve to be <span class="wavy light">remembered</span>.</h2>
+          <p>Download Wanderstamp and turn every trip into a memory you can see, share and keep.</p>
+          <!-- STORE BUTTONS: swap for the official badges once the app is live (see the hero). -->
+          <div class="cta center-cta">
+          <span class="play-soon" role="note">
+            <svg width="24" height="26" viewBox="0 0 26 28" aria-hidden="true">
               <path d="M1.5 1.2 14.6 14 1.5 26.8c-.4-.3-.6-.8-.6-1.4V2.6c0-.6.2-1.1.6-1.4Z" fill="#4FA9B0"/>
               <path d="m19 9.6-4.4 4.4-13.1-12.8c.5-.4 1.2-.5 1.9-.1L19 9.6Z" fill="#E9B44C"/>
               <path d="m19 18.4-15.6 8.5c-.7.4-1.4.3-1.9-.1L14.6 14l4.4 4.4Z" fill="#F26B3A"/>
-              <path d="m24 15.6-5 2.8-4.4-4.4L19 9.6l5 2.8c1.2.7 1.2 2.5 0 3.2Z" fill="#2E2B29"/>
+              <path d="m24 15.6-5 2.8-4.4-4.4L19 9.6l5 2.8c1.2.7 1.2 2.5 0 3.2Z" fill="#F5F4F1"/>
             </svg>
-            <span><small>Coming soon to</small><strong>Google Play</strong></span>
-          </span>
-        </div>
-
-        <div id="contact" class="hello reveal">
-          <div>
-            <h2>Say hello</h2>
-            <p>Found a bug, a missing place, or dreaming up a new stamp? We'd love to hear from
-              you. In the app, you can also use <b>Profile → Send feedback</b>.
-              <!-- SOCIAL: add the Instagram and TikTok links here once the accounts exist. --></p>
+              <span><small>Get it on</small><strong>Google Play</strong></span>
+            </span>
+            <span class="play-soon is-soon" role="note">
+            <svg width="24" height="26" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              <span><small>Coming soon to</small><strong>App Store</strong></span>
+            </span>
           </div>
-          <a class="btn btn-primary mail" href="mailto:dndtech.biz@gmail.com?subject=Wanderstamp">dndtech.biz@gmail.com</a>
         </div>
       </div>
     </section>
@@ -389,13 +271,11 @@
 
   <footer>
     <div class="wrap">
-      <span>© 2026 Wanderstamp · Made for travellers by DTech Anh Pham, an independent developer
-        and sole proprietorship registered in Poland.</span>
+      <span>© 2026 Wanderstamp. All rights reserved.</span>
       <nav aria-label="Footer">
         <a href="privacy.html">Privacy policy</a>
         <a href="terms.html">Terms</a>
-        <a href="delete-account.html">Delete account</a>
-        <a href="#contact">Contact</a>
+        <a href="mailto:dndtech.biz@gmail.com?subject=Wanderstamp">Contact</a>
       </nav>
     </div>
   </footer>
@@ -407,28 +287,23 @@
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
 
+    // The share phone plays its loop (tap Share, the share sheet pops up) only while on screen.
+    const shareShot = document.querySelector('.share-shot');
+    if (shareShot && 'IntersectionObserver' in window) new IntersectionObserver((e) => shareShot.classList.toggle('play', e[0].isIntersecting), { threshold: 0.35 }).observe(shareShot.closest('.feat') || shareShot);
+
     // Sections ease in as they scroll into view.
     const io = new IntersectionObserver((entries) => {
       for (const e of entries) if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
     }, { rootMargin: '0px 0px -8% 0px' });
     document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
-
-    // Try it: tap a blank slot to stamp it.
-    const slots = document.querySelectorAll('.slot');
-    const reset = document.querySelector('.slots-reset');
-    slots.forEach((slot) => slot.addEventListener('click', () => {
-      slot.classList.add('stamped');
-      slot.setAttribute('aria-label', slot.getAttribute('aria-label').replace('Stamp', 'Stamped:'));
-      if (navigator.vibrate) navigator.vibrate(18);
-      reset.classList.add('show');
-    }));
-    reset.addEventListener('click', () => {
-      slots.forEach((slot) => {
-        slot.classList.remove('stamped');
-        slot.setAttribute('aria-label', slot.getAttribute('aria-label').replace('Stamped:', 'Stamp'));
-      });
-      reset.classList.remove('show');
-    });
   </script>
+  <!-- The spinning hero globe: d3-geo, d3-array and topojson-client (ISC, see assets/js/LICENSES.txt), world shapes from world-atlas (Natural Earth). -->
+  <script src="assets/js/d3-array.min.js" defer></script>
+  <script src="assets/js/d3-geo.min.js" defer></script>
+  <script src="assets/js/topojson-client.min.js" defer></script>
+  <script src="assets/js/globe.js" defer></script>
+  <script src="assets/js/map-fill.js" defer></script>
+  <script src="assets/js/count-up.js" defer></script>
+  <script src="assets/js/stamp-fill.js" defer></script>
 </body>
 </html>

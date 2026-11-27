@@ -103,7 +103,6 @@ a:hover { color: var(--sunset-text); }
   font-size: 0.9rem;
 }
 .top nav .pill:hover { color: var(--white); background: #000; }
-@media (max-width: 640px) { .top nav .opt { display: none; } }
 
 /* ---------- Rubber-stamp label (above section titles) ---------- */
 
@@ -122,6 +121,11 @@ a:hover { color: var(--sunset-text); }
   color: var(--sunset);
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='12' viewBox='0 0 40 12'%3E%3Cpath d='M0 6q5-5 10 0t10 0 10 0 10 0' fill='none' stroke='%23F26B3A' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x 0 100% / 30px 9px;
   padding-bottom: 0.12em;
+}
+/* The same wavy underline in gold, for Pro */
+.wavy.gold {
+  color: #C38F25;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='12' viewBox='0 0 40 12'%3E%3Cpath d='M0 6q5-5 10 0t10 0 10 0 10 0' fill='none' stroke='%23E9B44C' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
 }
 
 /* ---------- Buttons ---------- */
@@ -149,17 +153,18 @@ a:hover { color: var(--sunset-text); }
 .play-soon svg { flex: none; }
 .play-soon small { display: block; font-size: 0.72rem; letter-spacing: 0.05em; opacity: 0.75; text-transform: uppercase; }
 .play-soon strong { font: 800 1.12rem/1.1 'Nunito', sans-serif; }
-.play-soon.light { background: var(--white); color: var(--ink); box-shadow: 0 4px 0 rgba(0, 0, 0, 0.18); }
+/* Not out yet (the App Store): greyed out */
+.play-soon.is-soon { opacity: 0.45; filter: grayscale(1); box-shadow: none; cursor: default; }
 
 /* ---------- Phone frame around a screenshot ---------- */
 
 .phone {
   position: relative; margin: 0;
-  width: 100%; aspect-ratio: 540 / 1100;
-  padding: 3.2% 3.2% 3.2%;
+  width: 100%;
+  padding: 4.5px;
   background: #1D1B1A; border-radius: 13% / 6.4%;
   box-shadow: 0 30px 60px -20px rgba(110, 50, 20, 0.35), 0 8px 18px rgba(46, 43, 41, 0.12),
-    inset 0 0 0 2px #3A3634;
+    inset 0 0 0 1px #3A3634;
 }
 .phone::before {
   /* the camera hole */
@@ -167,72 +172,212 @@ a:hover { color: var(--sunset-text); }
   transform: translateX(-50%); border-radius: 50%; background: #0B0A0A; z-index: 1;
 }
 .phone .screen {
-  width: 100%; height: 100%; overflow: hidden; border-radius: 10.5% / 5.1%;
+  width: 100%; overflow: hidden; border-radius: 11.8% / 5.8%;
   background: var(--paper);
-  display: flex; flex-direction: column;
 }
 .phone .screen::before {
-  /* a plain status bar, since the screenshots are cropped below it */
-  content: ''; flex: 0 0 5.4%;
+  /* a plain status bar, since the screenshots are cropped below it; the screen is exactly this
+     plus the screenshot, so the picture always reaches the bottom */
+  content: ''; display: block; aspect-ratio: 9 / 1;
 }
 .phone img { display: block; width: 100%; height: auto; }
 
 /* ---------- Hero ---------- */
 
+/* A short pitch on the left; the map phone, tilted, with real stamps stuck around it. */
+.hero-band { position: relative; overflow: clip; }
 .hero {
   display: grid; gap: 40px; align-items: center;
-  padding-top: 28px; padding-bottom: 40px;
+  padding-top: 48px; padding-bottom: 48px;
 }
-@media (min-width: 900px) { .hero { grid-template-columns: 1.08fr 0.92fr; padding-top: 56px; padding-bottom: 72px; } }
-.hero h1 { margin-bottom: 0.32em; }
-.lead { font-size: clamp(1.1rem, 2.2vw, 1.28rem); color: var(--ink60); max-width: 31em; }
-.cta { display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: center; margin-top: 28px; }
-.cta .peek { color: var(--ink); text-decoration: none; display: inline-flex; gap: 6px; align-items: center; }
-.cta .peek:hover { color: var(--sunset-text); }
-.small-print {
-  display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 22px 0 0; padding: 0; list-style: none;
-  color: var(--ink60); font-weight: 700; font-size: 0.95rem;
-}
-.small-print li::before { content: '✓'; color: var(--teal-deep); margin-right: 7px; font-weight: 800; }
+@media (min-width: 900px) { .hero { grid-template-columns: 1.08fr 0.92fr; padding-top: 88px; padding-bottom: 72px; } }
+.hero h1 { margin-bottom: 0.3em; font-size: clamp(2.4rem, 6vw, 4rem); }
+.lead { font-size: clamp(1.1rem, 2.2vw, 1.3rem); color: var(--ink60); max-width: 26em; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 26px; }
+.hero-note { margin: 14px 0 0; color: var(--ink60); font-weight: 700; font-size: 0.92rem; }
 
-.hero-art { position: relative; display: grid; place-items: center; padding: 20px 0 10px; }
-.hero-art .phone { width: min(68vw, 330px); transform: rotate(3deg); }
+.hero-art { position: relative; display: grid; place-items: center; padding: 34px 0 30px; }
+/* The globe: a canvas drawn by assets/js/globe.js, over the still picture it replaces once it
+   has drawn (the picture stays if scripts don't run). */
+.globe-wrap {
+  position: relative; z-index: 2; width: min(78vw, 440px); aspect-ratio: 1;
+  filter: drop-shadow(0 30px 40px rgba(166, 65, 28, 0.22));
+}
+.globe-wrap img, .globe-wrap canvas { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 50%; }
+.globe-wrap canvas { opacity: 0; transition: opacity 0.4s; }
+.globe-wrap.live canvas { opacity: 1; }
+.globe-wrap.live img { opacity: 0; transition: opacity 0.4s; }
+.hero-art .s1 { --r: -12deg; width: min(19vw, 93px); left: max(0px, 50% - min(39vw, 220px) - min(10vw, 48px)); top: 2%; transform: rotate(-12deg); }
+.hero-art .s2 { --r: 9deg; z-index: 1; width: min(17vw, 80px); right: max(0px, 50% - min(39vw, 220px) - min(17vw, 80px) + min(6vw, 26px)); bottom: 15%; transform: rotate(9deg); }
+
+/* Floating stat cards: the numbers from the map screen */
+.stat-card {
+  position: absolute; z-index: 2; display: grid; justify-items: start;
+  background: var(--white); border: 1px solid var(--border); border-radius: 18px;
+  padding: 10px 16px 11px; box-shadow: 0 12px 26px rgba(46, 43, 41, 0.12);
+  font-weight: 800; font-size: 0.9rem; line-height: 1.15; color: var(--ink60);
+}
+.stat-card b { font: 800 1.9rem/1 var(--title); color: var(--sunset); }
+.stat-card.c1 { right: 2%; top: 4%; transform: rotate(4deg); }
+.stat-card.c2 { left: -2%; top: 44%; transform: rotate(-4deg); }
+.stat-card.c2 b { color: var(--teal-deep); }
+.stat-card.c3 { right: 18%; bottom: -2%; transform: rotate(-2deg); }
+.stat-card.c3 b { color: #C38F25; }
+@media (max-width: 520px) {
+  .stat-card { padding: 8px 12px 9px; font-size: 0.8rem; }
+  .stat-card b { font-size: 1.5rem; }
+}
+
+
+/* The map panel shows the phone with the map screen, tilted */
+/* The phone shows only its top part: the art box has a fixed height and the panel clips the rest
+   at its bottom edge. */
+/* A fixed phone size, shown in full and standing straight, so the phones look the same on every
+   screen. */
+.phone-art { display: grid; place-items: center; align-self: center; min-height: 0; }
+.phone-art .phone { width: 250px; margin: 0; }
+@media (min-width: 820px) {
+  .feat.feat-phone, .feat.feat-white { min-height: 606px; }
+  /* Phones alternate sides: right, left, right */
+  .feat-phone.flip { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); }
+  .feat-phone.flip .phone-art { order: -1; }
+}
+/* The live globe sits exactly over the globe in the screenshot (its centre is 50.6% down the
+   picture and it is 93.8% of its width), and only shows once it has drawn. */
+.map-shot { position: relative; overflow: hidden; container-type: inline-size; }
+.map-shot > img { display: block; }
+
+/* The passport phone (assets/js/count-up.js): live numbers and a live progress bar laid over the
+   ones in the screenshot, in the app's fonts and colours (IdCard.tsx, PassportScreen.tsx), so they
+   can count up. Positions are measured from the picture, in % of it. */
+.pass-shot { position: relative; container-type: inline-size; }
+.pass-shot > img { display: block; }
+.pnum {
+  position: absolute; background: #fff; line-height: 1; white-space: nowrap;
+  padding: 0 0.6cqw 0.2cqw 0; font-family: var(--title); font-weight: 800; font-size: 6.32cqw;
+}
+.p-countries { left: 73.98%; top: calc(25.53% - 0.2em); font: 800 3.28cqw/1 'Nunito', sans-serif; color: var(--sunset); min-width: 4.8cqw; }
+.p-cities { left: 8.43%; top: calc(41.97% - 0.17em); color: var(--teal-deep); min-width: 8.6cqw; }
+.p-regions { left: 39.63%; top: calc(42.02% - 0.17em); color: var(--teal); min-width: 6.9cqw; }
+.p-conts { left: 70.74%; top: calc(41.97% - 0.17em); color: var(--sun); min-width: 3.9cqw; padding-right: 0; }
+.pbar {
+  position: absolute; left: 9.35%; top: 29.35%; width: 81.3%; height: 1.2%;
+  border-radius: 999px; background: var(--sand); overflow: hidden;
+}
+.pbar i { display: block; height: 100%; width: 54.5%; border-radius: 999px; background: var(--sunset); }
+
+/* The share phone: a loop like a screen recording. Share is tapped (the button sits at
+   4.6% / 91.3% of the screenshot, 75% x 6.8% of it), the screen dims and a share sheet slides up,
+   the app icons pop in one by one, Instagram is tapped, then it all slides away and starts over.
+   It runs only while the panel is on screen (.play, set by the script in index.html). */
+.share-shot { position: relative; overflow: hidden; container-type: inline-size; }
+.share-shot > img { display: block; }
+.sh-layer > * { position: absolute; pointer-events: none; }
+.sh-press { left: 4.6%; top: 91.3%; width: 75%; height: 6.8%; border-radius: 999px; background: rgba(20, 60, 64, 0.22); opacity: 0; }
+.sh-dim { inset: 0; background: rgba(46, 43, 41, 0.38); opacity: 0; }
+.sh-sheet {
+  left: 0; right: 0; bottom: 0; padding: 5cqw 5cqw 8cqw; background: #fff; border-radius: 6cqw 6cqw 0 0;
+  box-shadow: 0 -2cqw 6cqw rgba(46, 43, 41, 0.18); transform: translateY(105%);
+}
+.sh-sheet::before { content: ''; display: block; width: 11cqw; height: 1.1cqw; margin: -1.5cqw auto 3.5cqw; border-radius: 9px; background: #ddd8d0; }
+.sh-sheet b { display: block; margin-bottom: 4.5cqw; font: 800 4.6cqw/1 'Nunito', sans-serif; color: var(--ink); }
+.sh-apps { display: flex; justify-content: space-between; }
+.sh-app { display: flex; flex-direction: column; align-items: center; gap: 1.8cqw; width: 20cqw; transform: scale(0); }
+.sh-app svg { width: 14cqw; height: 14cqw; display: block; filter: drop-shadow(0 1cqw 1.4cqw rgba(46, 43, 41, 0.18)); }
+.sh-app i { font: 700 3cqw/1 'Nunito', sans-serif; font-style: normal; color: #6b655e; }
+.sh-tap {
+  width: 13cqw; height: 13cqw; margin: -6.5cqw 0 0 -6.5cqw; border-radius: 50%; z-index: 3;
+  background: rgba(255, 255, 255, 0.45); border: 0.6cqw solid #fff; box-shadow: 0 0 0 0.4cqw rgba(46, 43, 41, 0.18); opacity: 0;
+}
+.sh-tap.t1 { left: 42%; top: 94.7%; }
+.sh-tap.t2 { left: 15%; top: auto; bottom: 19.5cqw; margin: 0 0 -6.5cqw -6.5cqw; background: rgba(46, 43, 41, 0.12); border-color: rgba(46, 43, 41, 0.35); box-shadow: none; }
+.share-shot.play .sh-press { animation: sh-press 7s infinite; }
+.share-shot.play .sh-dim { animation: sh-dim 7s infinite; }
+.share-shot.play .sh-sheet { animation: sh-sheet 7s infinite; }
+.share-shot.play .sh-app.a1 { animation: sh-app 7s infinite; }
+.share-shot.play .sh-app.a2 { animation: sh-app-still 7s 0.14s infinite; }
+.share-shot.play .sh-app.a3 { animation: sh-app-still 7s 0.28s infinite; }
+.share-shot.play .sh-app.a4 { animation: sh-app-still 7s 0.42s infinite; }
+.share-shot.play .sh-tap.t1 { animation: sh-tap1 7s infinite; }
+.share-shot.play .sh-tap.t2 { animation: sh-tap2 7s infinite; }
+@keyframes sh-tap1 { 0%, 8% { opacity: 0; transform: scale(0.4); } 10% { opacity: 1; transform: scale(0.75); } 17%, 100% { opacity: 0; transform: scale(1.25); } }
+@keyframes sh-tap2 { 0%, 62% { opacity: 0; transform: scale(0.4); } 64% { opacity: 1; transform: scale(0.75); } 71%, 100% { opacity: 0; transform: scale(1.25); } }
+@keyframes sh-press { 0%, 9% { opacity: 0; } 11%, 14% { opacity: 1; } 18%, 100% { opacity: 0; } }
+@keyframes sh-dim { 0%, 15% { opacity: 0; } 21%, 80% { opacity: 1; } 87%, 100% { opacity: 0; } }
+@keyframes sh-sheet {
+  0%, 15% { transform: translateY(105%); animation-timing-function: cubic-bezier(.2, .8, .2, 1); }
+  23%, 80% { transform: none; animation-timing-function: ease-in; }
+  86%, 100% { transform: translateY(105%); }
+}
+/* Instagram also dips when it is tapped; the others just pop in */
+@keyframes sh-app {
+  0%, 21% { transform: scale(0); }
+  25% { transform: scale(1.18); }
+  28%, 63% { transform: scale(1); }
+  65% { transform: scale(0.86); }
+  68%, 100% { transform: scale(1); }
+}
+@keyframes sh-app-still { 0%, 21% { transform: scale(0); } 25% { transform: scale(1.18); } 28%, 100% { transform: scale(1); } }
+
+/* The stamp collection phone (assets/js/stamp-fill.js): each coloured stamp in the screenshot starts
+   greyed out, like one not collected yet, then turns back to colour one by one with a little ink
+   ring. The boxes are measured from the picture, in % of it. */
+.stamps-shot { position: relative; }
+.stamps-shot > img { display: block; }
+.gs-layer { position: absolute; inset: 0; }
+.gs {
+  position: absolute; border-radius: 8px;
+  -webkit-backdrop-filter: grayscale(1) contrast(0.8) brightness(1.08);
+  backdrop-filter: grayscale(1) contrast(0.8) brightness(1.08);
+  background: rgba(245, 244, 241, 0.38);
+  transition: opacity 0.35s ease-out;
+}
+.gs.on { opacity: 0; }
+.gs-ring {
+  position: absolute; width: 18%; aspect-ratio: 1; margin: -9% 0 0 -9%; border-radius: 50%;
+  border: 2px solid var(--sunset); opacity: 0; pointer-events: none;
+}
+.gs.on + .gs-ring { animation: gs-ring 0.6s ease-out; }
+@keyframes gs-ring { 0% { opacity: 0.9; transform: scale(0.4); } 100% { opacity: 0; transform: scale(1.3); } }
+
+/* The demo loop (assets/js/map-fill.js): the country page slides up over the map, its Visited
+   button switches on with the app's little bounce, a tap ring shows each tap, and Vietnam
+   pulses once it fills in. */
+.sheet {
+  position: absolute; inset: 0; z-index: 2; background: var(--paper);
+  transform: translateY(102%); transition: transform 0.5s cubic-bezier(.2, .8, .2, 1);
+}
+.sheet img { display: block; width: 100%; height: auto; }
+.map-shot.sheet-up .sheet { transform: none; }
+.visit-btn {
+  position: absolute; left: 5.19%; top: 50.38%; width: 43.52%; height: 7.07%;
+  display: flex; align-items: center; justify-content: center; gap: 1.4cqw;
+  border-radius: 999px; border: 0.55cqw solid var(--sunset); background: var(--paper);
+  color: var(--sunset-dark); font: 800 3.7cqw/1 'Nunito', sans-serif;
+}
+.visit-btn svg { display: none; width: 4.2cqw; height: 4.2cqw; fill: currentColor; }
+.map-shot.visited .visit-btn { background: var(--sunset); color: var(--white); animation: btn-bounce 0.5s ease-out; }
+.map-shot.visited .visit-btn svg { display: block; }
+@keyframes btn-bounce { 0% { transform: scale(0.6); } 55% { transform: scale(1.14); } 100% { transform: scale(1); } }
+.tap {
+  position: absolute; z-index: 3; width: 13cqw; height: 13cqw; margin: -6.5cqw 0 0 -6.5cqw;
+  border-radius: 50%; background: rgba(255, 255, 255, 0.45); border: 0.6cqw solid #fff;
+  box-shadow: 0 0 0 0.4cqw rgba(46, 43, 41, 0.18); opacity: 0; pointer-events: none;
+}
+.tap.go { animation: tap-ring 0.6s ease-out; }
+.map-shot.pulse .tap { background: rgba(242, 107, 58, 0.25); border-color: var(--sunset); }
+@keyframes tap-ring { 0% { opacity: 0; transform: scale(0.4); } 25% { opacity: 1; transform: scale(0.75); } 100% { opacity: 0; transform: scale(1.25); } }
+.fill-globe { position: absolute; left: 3.1%; top: 26.25%; width: 93.8%; aspect-ratio: 1; border-radius: 50%; opacity: 0; transition: opacity 0.3s; }
+.map-shot.live .fill-globe { opacity: 1; }
+
+/* Stickers: real stamps stuck on top of things */
 .sticker {
   position: absolute; z-index: 2; height: auto;
   filter: drop-shadow(0 8px 10px rgba(46, 43, 41, 0.16));
   transition: transform 0.3s cubic-bezier(.3, 1.6, .5, 1);
 }
 .sticker:hover { transform: rotate(var(--r, 0deg)) scale(1.08) !important; }
-.hero-art .s1 { --r: -12deg; width: min(27vw, 128px); left: 2%; top: 6%; transform: rotate(-12deg); }
-.hero-art .s2 { --r: 9deg; width: min(29vw, 136px); right: 0; bottom: 14%; transform: rotate(9deg); }
-.hero-art .s3 { --r: -6deg; width: min(22vw, 104px); left: 6%; bottom: 4%; transform: rotate(-6deg); }
-@media (min-width: 900px) {
-  .hero-art .s1 { left: -2%; }
-  .hero-art .s2 { right: -4%; }
-}
-.hero-art .note {
-  position: absolute; right: 2%; top: 3%; z-index: 2;
-  background: var(--white); border: 1px solid var(--border); border-radius: 16px;
-  padding: 9px 14px; transform: rotate(4deg);
-  box-shadow: 0 8px 18px rgba(46, 43, 41, 0.1);
-  font-weight: 800; font-size: 0.92rem; line-height: 1.2; text-align: center;
-}
-.hero-art .note b { display: block; font: 800 1.7rem/1 var(--title); color: var(--sunset); }
-
-/* ---------- Stamp strip (slowly scrolling row of real stamps) ---------- */
-
-.strip {
-  overflow: hidden; padding: 26px 0;
-  border-block: 2px dashed var(--sand-dash);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-}
-.strip-track { display: flex; gap: 34px; width: max-content; animation: drift 60s linear infinite; }
-.strip img { width: 104px; height: auto; flex: none; }
-.strip img:nth-child(odd) { transform: rotate(-4deg); }
-.strip img:nth-child(even) { transform: rotate(3deg) translateY(6px); }
-.strip:hover .strip-track { animation-play-state: paused; }
-@keyframes drift { to { transform: translateX(-50%); } }
+.hero-art .sticker:hover { transform: rotate(var(--r, 0deg)) !important; }
 
 /* ---------- Sections ---------- */
 
@@ -242,209 +387,86 @@ section { padding: 84px 0; }
 .section-head p { color: var(--ink60); font-size: 1.15rem; margin: 0; }
 .center { text-align: center; margin-inline: auto; }
 
-/* How it works: three passport pages */
-.steps { display: grid; gap: 18px; counter-reset: step; }
-@media (min-width: 820px) { .steps { grid-template-columns: repeat(3, 1fr); } }
-.step {
-  position: relative; background: var(--white); border-radius: 28px; padding: 26px 26px 28px;
-  border: 1px solid var(--border);
-}
-.step::before {
-  counter-increment: step; content: counter(step);
-  display: grid; place-items: center; width: 54px; height: 54px; margin-bottom: 16px;
-  border-radius: 50%; border: 3px solid currentColor; outline: 1.5px solid currentColor; outline-offset: 3px;
-  font: 800 1.6rem/1 var(--stamp); transform: rotate(-8deg);
-}
-.step:nth-child(1)::before { color: var(--sunset); }
-.step:nth-child(2)::before { color: #C38F25; }
-.step:nth-child(3)::before { color: var(--teal-deep); }
-.step p { color: var(--ink60); margin: 0; }
-
-/* Try it: tap a blank slot and it gets stamped, like in the app */
-.try {
-  margin-top: 18px; padding: 30px 26px; border-radius: 28px;
-  background: var(--sunset-tint); border: 1px solid var(--sunset-tint-border);
-  display: grid; gap: 22px; align-items: center;
-}
-@media (min-width: 820px) { .try { grid-template-columns: 0.9fr 1.1fr; padding: 34px 40px; } }
-.try h3 { margin-bottom: 0.25em; }
-.try p { color: var(--ink60); margin: 0; }
-.slots { display: flex; justify-content: center; gap: clamp(10px, 3vw, 26px); }
-.slot {
-  position: relative; width: clamp(92px, 24vw, 128px); aspect-ratio: 248 / 295;
-  padding: 0; border: 0; background: none; cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-}
-.slot .blank {
-  position: absolute; inset: 6%;
-  display: grid; place-items: end center; padding-bottom: 14%;
-  border: 2.5px dashed var(--sand-dash); border-radius: 10px; background: rgba(255, 255, 255, 0.55);
-  color: var(--ink45); font: 800 clamp(0.7rem, 2.2vw, 0.85rem)/1 var(--stamp); letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-.slot .blank::before {
-  content: 'Tap me'; position: absolute; top: 38%; left: 50%; transform: translateX(-50%);
-  font: 700 0.8rem/1 'Nunito', sans-serif; letter-spacing: 0; text-transform: none; color: var(--sunset-text);
-  white-space: nowrap;
-}
-.slot:hover .blank { border-color: var(--sunset); }
-.slot img {
-  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;
-  opacity: 0; transform: scale(1.6) rotate(-10deg);
-}
-.slot.stamped .blank { opacity: 0; }
-.slot.stamped img { animation: thunk 0.42s cubic-bezier(.2, .9, .3, 1.25) forwards; }
-.slot:nth-child(2).stamped img { --end: 4deg; }
-.slot:nth-child(3).stamped img { --end: -2deg; }
-@keyframes thunk {
-  0% { opacity: 0; transform: scale(1.6) rotate(-10deg); }
-  60% { opacity: 1; transform: scale(0.92) rotate(var(--end, -4deg)); }
-  100% { opacity: 1; transform: scale(1) rotate(var(--end, -4deg)); }
-}
-.slots-reset {
-  display: block; margin: 14px auto 0; background: none; border: 0; cursor: pointer;
-  color: var(--sunset-text); font: 700 0.92rem 'Nunito', sans-serif; text-decoration: underline;
-  text-underline-offset: 3px; visibility: hidden;
-}
-.slots-reset.show { visibility: visible; }
-
-/* A peek inside: big rounded cards with a phone peeking out */
-.bento { display: grid; gap: 18px; }
-@media (min-width: 820px) {
-  .bento { grid-template-columns: repeat(6, 1fr); }
-  .card.wide { grid-column: span 4; }
-  .card.narrow { grid-column: span 2; }
-  .card.half { grid-column: span 3; }
-}
-.card {
-  position: relative; overflow: hidden; border-radius: 32px; padding: 30px 28px 0;
-  display: flex; flex-direction: column; min-height: 440px;
+/* Features: one wide panel each, words on the left and the feature as a thing on the right */
+.feats { display: grid; gap: 18px; }
+.feat {
+  display: grid; gap: 28px; align-items: center;
+  border-radius: 36px; padding: 34px 24px 38px; overflow: hidden;
   border: 1px solid transparent;
 }
-.card h3 { font-size: 1.6rem; margin-bottom: 0.3em; }
-.card p { color: var(--ink60); margin: 0 0 24px; max-width: 26em; }
-.card .phone {
-  width: min(240px, 72%); margin: auto auto 0; margin-bottom: -38%;
-  transition: transform 0.35s cubic-bezier(.3, 1.4, .5, 1);
+@media (min-width: 820px) {
+  .feat { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 40px; padding: 52px 60px; min-height: 430px; }
 }
-.card:hover .phone { transform: translateY(-14px) rotate(-1.5deg); }
-.card.wide { display: grid; grid-template-columns: 1fr; }
-@media (min-width: 620px) {
-  .card.wide { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .card.wide .copy { padding-bottom: 30px; }
-  .card.wide .phone { margin-bottom: -30%; align-self: end; }
+.feat h3 { font-size: clamp(2rem, 4.2vw, 2.9rem); line-height: 1.04; margin-bottom: 0.4em; }
+.feat p { color: var(--ink60); font-size: 1.08rem; max-width: 24em; margin: 0; }
+.eyebrow {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
+  font: 800 0.85rem/1.2 'Nunito', sans-serif; letter-spacing: 0.12em; text-transform: uppercase;
 }
-.card .sticker { width: 96px; }
-.card-sunset { background: var(--sunset-tint); border-color: var(--sunset-tint-border); }
-.card-sun { background: var(--sun-tint); border-color: var(--sun-tint-border); }
-.card-teal { background: var(--teal-tint); border-color: var(--teal-tint-border); }
-.card-sand { background: var(--sand-tint); border-color: var(--sand); }
-.card .tag {
-  align-self: flex-start; margin-bottom: 14px; padding: 4px 11px; border-radius: 999px;
-  background: rgba(255, 255, 255, 0.75); font-weight: 800; font-size: 0.8rem; color: var(--ink60);
+/* Panels with a phone: more room for the words, so the heading fits on one line */
+@media (min-width: 820px) {
+  .feat-phone { grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); }
+  .feat-phone h3 { font-size: min(2.4rem, 3vw); }
+  .feat h3.one-line { white-space: nowrap; }
 }
 
-/* Make it yours: styles, themes and cards */
-.yours { display: grid; gap: 18px; }
-@media (min-width: 820px) { .yours { grid-template-columns: 1fr 1fr; } }
-.panel {
-  background: var(--white); border: 1px solid var(--border); border-radius: 32px; padding: 30px 28px;
-}
-.panel-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
-.panel h3 { font-size: 1.5rem; }
-.panel p { color: var(--ink60); }
-.pro-pill {
-  flex: none; padding: 3px 11px; border-radius: 999px; background: var(--sun); color: var(--sun-on);
-  font: 800 0.78rem/1.5 var(--stamp); letter-spacing: 0.1em;
-}
-.free-pill { background: var(--teal-tint); color: var(--teal-text); }
-.stamp-row { display: flex; justify-content: center; gap: 4px; margin: 18px 0 6px; }
-.stamp-row img { width: clamp(80px, 22vw, 116px); height: auto; transition: transform 0.3s cubic-bezier(.3, 1.6, .5, 1); }
-.stamp-row img:nth-child(1) { transform: rotate(-6deg); }
-.stamp-row img:nth-child(2) { transform: rotate(2deg) translateY(-6px); }
-.stamp-row img:nth-child(3) { transform: rotate(7deg); }
-.stamp-row img:hover { transform: scale(1.1) rotate(0deg); }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; padding: 0; list-style: none; }
-.chips li {
-  padding: 6px 13px; border-radius: 999px; background: var(--sand-tint);
-  font-weight: 700; font-size: 0.92rem;
-}
-.chips li.on { background: var(--ink); color: var(--white); }
-.globes { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 14px; margin: 22px 0 4px; padding: 0; list-style: none; }
-.globes li { display: grid; justify-items: center; gap: 6px; font-weight: 700; font-size: 0.92rem; }
-.globes svg { width: 64px; height: 64px; transition: transform 0.5s; }
-.globes li:hover svg { transform: rotate(-25deg); }
+.feat-art { position: relative; display: grid; place-items: center; min-height: 260px; }
 
-/* Pro: a big postage stamp with a perforated edge */
-/* Holes are punched on a grid whose tiles are rounded to fit the box exactly, so a half hole
-   sits on every edge: each tile cuts a quarter circle at each of its corners (intersected),
-   and the solid content box is added back so only the edge band shows holes. */
-.perforated {
-  --r: 9px; --t: 26px;
-  padding: var(--r);
-  background: var(--sun-tint);
-  --hole: #0000 var(--r), #000 calc(var(--r) + 0.5px);
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box no-repeat,
-    radial-gradient(circle at 0 0, var(--hole)) 0 0 / var(--t) var(--t) round border-box,
-    radial-gradient(circle at 100% 0, var(--hole)) 0 0 / var(--t) var(--t) round border-box,
-    radial-gradient(circle at 0 100%, var(--hole)) 0 0 / var(--t) var(--t) round border-box,
-    radial-gradient(circle at 100% 100%, var(--hole)) 0 0 / var(--t) var(--t) round border-box;
-  -webkit-mask-composite: source-over, source-in, source-in, source-in;
-  mask:
-    linear-gradient(#000 0 0) content-box no-repeat,
-    radial-gradient(circle at 0 0, var(--hole)) 0 0 / var(--t) var(--t) round border-box,
-    radial-gradient(circle at 100% 0, var(--hole)) 0 0 / var(--t) var(--t) round border-box,
-    radial-gradient(circle at 0 100%, var(--hole)) 0 0 / var(--t) var(--t) round border-box,
-    radial-gradient(circle at 100% 100%, var(--hole)) 0 0 / var(--t) var(--t) round border-box;
-  mask-composite: add, intersect, intersect, intersect;
-}
-.pro-wrap { position: relative; filter: drop-shadow(0 18px 28px rgba(110, 82, 22, 0.18)); }
-.pro {
-  display: grid; gap: 30px; align-items: center;
-  border: 2px dashed var(--sun-tint-border); border-radius: 6px;
-  padding: 34px 24px;
-}
-@media (min-width: 860px) { .pro { grid-template-columns: 1fr 1.05fr; padding: 48px 52px; } }
-.pro h2 { margin-bottom: 0.3em; }
-.pro .intro { color: var(--sun-text); font-size: 1.12rem; }
-.price { display: flex; align-items: baseline; gap: 10px; margin: 20px 0 6px; font: 800 3rem/1 var(--title); color: var(--sun-on); }
-.price small { font: 700 1.05rem 'Nunito', sans-serif; color: var(--sun-text); }
-.pro .free { color: var(--sun-text); font-size: 0.97rem; margin: 0; }
-.pro ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
-.pro li {
-  display: flex; gap: 14px; align-items: center;
-  background: rgba(255, 255, 255, 0.7); border-radius: 20px; padding: 14px 18px;
-}
-.pro li b { display: block; font: 800 1.12rem/1.2 var(--title); }
-.pro li span { color: var(--ink60); font-size: 0.97rem; line-height: 1.4; }
-.pro .ico {
-  flex: none; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 14px;
-  background: var(--sun); color: var(--sun-on);
-}
-.pro-wrap .sticker { width: 112px; right: -14px; top: -40px; transform: rotate(12deg); --r: 12deg; }
-@media (max-width: 859px) { .pro-wrap .sticker { width: 80px; top: -44px; right: -2px; } }
+.feat-sunset { background: var(--sunset-tint); border-color: var(--sunset-tint-border); }
+.feat-sunset .eyebrow { color: var(--sunset-text); }
+.feat-teal { background: var(--teal-tint); border-color: var(--teal-tint-border); }
+.feat-teal .eyebrow { color: var(--teal-text); }
+.feat-sun { background: var(--sun-tint); border-color: var(--sun-tint-border); }
+.feat-sun .eyebrow { color: var(--sun-text); }
+.feat-white { background: var(--white); border-color: var(--border); }
+.feat-white .eyebrow { color: var(--sunset-text); }
 
-/* FAQ */
-.faq { max-width: 780px; margin: 0 auto; display: grid; gap: 12px; }
-.faq details {
-  background: var(--white); border: 1px solid var(--border); border-radius: 22px; padding: 0 24px;
-  transition: background-color 0.2s;
+/* Two rows of stamps drifting past in opposite directions: a collection that keeps going.
+   Each row holds its stamps three times and slides by one third, so the loop has no seam. */
+.drift-rows {
+  display: grid; gap: 16px; justify-self: stretch; align-content: center; overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
 }
-.faq details[open] { background: #FFFDFB; }
-.faq summary {
-  list-style: none; cursor: pointer; padding: 20px 36px 20px 0; position: relative;
-  font: 800 1.15rem/1.3 var(--title);
+.drift-track { display: flex; gap: 20px; width: max-content; animation: drift3 42s linear infinite; }
+.drift-track.back { animation-name: drift3-back; animation-duration: 50s; }
+.drift-rows:hover .drift-track { animation-play-state: paused; }
+.drift-track img {
+  flex: none; width: clamp(96px, 11vw, 128px); height: auto;
+  filter: drop-shadow(0 5px 6px rgba(166, 65, 28, 0.14));
 }
-.faq summary::-webkit-details-marker { display: none; }
-.faq summary::after {
-  content: '+'; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
-  display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%;
-  background: var(--sunset-tint); color: var(--sunset-text); font: 800 1.2rem/1 'Nunito', sans-serif;
-  transition: transform 0.25s;
+.drift-track img:nth-child(odd) { transform: rotate(-4deg); }
+.drift-track img:nth-child(even) { transform: rotate(3deg) translateY(6px); }
+@keyframes drift3 { to { transform: translateX(-33.333%); } }
+@keyframes drift3-back { from { transform: translateX(-33.333%); } to { transform: translateX(0); } }
+
+/* Things lying on the panel: the ID card and the share card */
+.card-obj {
+  display: block; height: auto;
+  filter: drop-shadow(0 22px 26px rgba(31, 79, 84, 0.18)) drop-shadow(0 3px 6px rgba(46, 43, 41, 0.08));
+  transition: transform 0.4s cubic-bezier(.3, 1.4, .5, 1);
 }
-.faq details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
-.faq details p { color: var(--ink60); margin: 0 0 20px; }
+.idcard:hover .card-obj { transform: rotate(-1deg) translateY(-6px); }
+
+
+
+/* Pro: a story heading, then the four perks as a simple list: an icon, a name and one line each */
+.pro-list {
+  list-style: none; margin: 6px auto 0; padding: 0; max-width: 880px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 26px 48px;
+}
+.pro-list li { display: flex; gap: 16px; align-items: flex-start; }
+.pro-list b { display: block; font: 800 1.15rem/1.25 var(--title); margin-bottom: 3px; }
+.pro-list span:not(.pro-ico) { display: block; color: var(--ink60); font-size: 0.98rem; line-height: 1.45; }
+.pro-ico {
+  flex: none; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 14px;
+  background: var(--sun-tint); border: 1px solid var(--sun-tint-border); color: var(--sun-text);
+}
+.pro-ico svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+/* Under the Pro list: two rows of gold stamps drifting past (the drift-rows animation) */
+.pro-strip { margin-top: 84px; }
+.pro-strip .drift-track { gap: 16px; }
+.pro-strip .drift-track img { width: clamp(70px, 7.5vw, 92px); filter: drop-shadow(0 6px 8px rgba(110, 82, 22, 0.2)); }
 
 /* Last call: a big orange postcard */
 .last {
@@ -452,33 +474,26 @@ section { padding: 84px 0; }
   background: var(--sunset); color: var(--white); border-radius: 36px;
   padding: 64px 22px 70px;
 }
-.last h2 { color: var(--white); font-size: clamp(2.2rem, 6vw, 3.8rem); max-width: 11em; margin-inline: auto; }
+.last h2 { color: var(--white); font-size: clamp(2.2rem, 6vw, 3.8rem); max-width: 12em; margin-inline: auto; }
+/* The wavy underline in white, on the orange card */
+.wavy.light {
+  color: var(--white);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='12' viewBox='0 0 40 12'%3E%3Cpath d='M0 6q5-5 10 0t10 0 10 0 10 0' fill='none' stroke='%23FFFFFF' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+}
 @media (min-width: 820px) { .last { padding-inline: 150px; } }
 .last p { font-size: 1.18rem; max-width: 30em; margin: 0 auto 28px; color: rgba(255, 255, 255, 0.9); }
+.last .center-cta { justify-content: center; margin-top: 0; }
+.last .play-soon { text-align: left; }
 .last .waves { position: absolute; opacity: 0.25; width: 260px; }
 .last .waves.a { left: -30px; top: 30px; }
 .last .waves.b { right: -40px; bottom: 34px; }
-.last .sticker { width: 104px; }
-.last .s1 { left: 6%; bottom: -14px; transform: rotate(-14deg); --r: -14deg; }
-.last .s2 { right: 4%; top: 22px; transform: rotate(11deg); --r: 11deg; }
-@media (max-width: 700px) { .last .sticker { width: 70px; } .last .s1 { left: -8px; } .last .s2 { right: -6px; top: -10px; } }
-
-/* Say hello */
-.hello {
-  display: grid; gap: 18px 40px; align-items: center; margin-top: 64px;
-}
-@media (min-width: 820px) { .hello { grid-template-columns: 1.2fr 0.8fr; } }
-.hello h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); }
-.hello p { color: var(--ink60); margin: 0; }
-.hello .mail { justify-self: start; }
-@media (min-width: 820px) { .hello .mail { justify-self: end; } }
 
 /* ---------- Footer ---------- */
 
 footer { padding: 44px 0 52px; color: var(--ink60); font-size: 0.93rem; }
 footer .wrap {
   display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between; align-items: center;
-  border-top: 2px dashed var(--sand-dash); padding-top: 26px;
+  padding-top: 26px;
 }
 footer nav { display: flex; gap: 18px; flex-wrap: wrap; }
 footer a { color: var(--ink60); }
@@ -489,10 +504,10 @@ footer a { color: var(--ink60); }
 .js .reveal.in { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
+  .share-shot.play .sh-layer > * { animation: none; }
+  .drift-track { animation: none; }
   html { scroll-behavior: auto; }
-  .strip-track { animation: none; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
-  .slot.stamped img { animation: none; opacity: 1; transform: rotate(-4deg); }
   * { transition: none !important; }
 }
 
@@ -514,3 +529,20 @@ footer a { color: var(--ink60); }
 table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
 th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--border); }
 th { font-family: var(--title); font-weight: 800; }
+
+/* Phones: every block of text is centred, and the two store buttons share one line */
+@media (max-width: 640px) {
+  .hero-copy, .feat-copy { text-align: center; }
+  .lead, .feat p { margin-inline: auto; }
+  .eyebrow { justify-content: center; }
+  .cta { justify-content: center; flex-wrap: nowrap; gap: 8px; }
+  .play-soon { padding: 9px 12px 9px 10px; gap: 8px; border-radius: 14px; text-align: left; }
+  .play-soon svg { width: 20px; height: 22px; }
+  .play-soon small { font-size: 0.6rem; letter-spacing: 0.03em; }
+  .play-soon strong { font-size: 0.98rem; }
+  .pro-list { gap: 28px 14px; }
+  .pro-list li { flex-direction: column; align-items: center; text-align: center; gap: 10px; }
+  .pro-list b { font-size: 1.05rem; }
+  .pro-list span:not(.pro-ico) { font-size: 0.9rem; }
+  footer .wrap, footer nav { justify-content: center; text-align: center; }
+}
