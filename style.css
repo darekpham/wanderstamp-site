@@ -428,8 +428,8 @@ section { padding: 84px 0; }
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
 }
-.drift-track { display: flex; gap: 20px; width: max-content; animation: drift3 42s linear infinite; }
-.drift-track.back { animation-name: drift3-back; animation-duration: 50s; }
+.drift-track { display: flex; gap: 20px; width: max-content; animation: drift3 63s linear infinite; }
+.drift-track.back { animation-name: drift3-back; animation-duration: 75s; }
 .drift-rows:hover .drift-track { animation-play-state: paused; }
 .drift-track img {
   flex: none; width: clamp(96px, 11vw, 128px); height: auto;
