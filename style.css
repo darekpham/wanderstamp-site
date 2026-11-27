@@ -23,6 +23,9 @@
   --teal-tint: #E3F1F1;
   --teal-tint-border: #CFE6E7;
   --teal-text: #18636A;
+  --lilac-tint: #EEEAF8;
+  --lilac-tint-border: #DED7F1;
+  --lilac-text: #5A4896;
   --border: #E3E0DA;
   --white: #FFFFFF;
   --ink: #2E2B29;
@@ -418,8 +421,8 @@ section { padding: 84px 0; }
 .feat-teal .eyebrow { color: var(--teal-text); }
 .feat-sun { background: var(--sun-tint); border-color: var(--sun-tint-border); }
 .feat-sun .eyebrow { color: var(--sun-text); }
-.feat-white { background: var(--white); border-color: var(--border); }
-.feat-white .eyebrow { color: var(--sunset-text); }
+.feat-white { background: var(--lilac-tint); border-color: var(--lilac-tint-border); }
+.feat-white .eyebrow { color: var(--lilac-text); }
 
 /* Two rows of stamps drifting past in opposite directions: a collection that keeps going.
    Each row holds its stamps three times and slides by one third, so the loop has no seam. */
