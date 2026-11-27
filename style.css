@@ -175,7 +175,8 @@ a:hover { color: var(--sunset-text); }
   transform: translateX(-50%); border-radius: 50%; background: #0B0A0A; z-index: 1;
 }
 .phone .screen {
-  width: 100%; overflow: hidden; border-radius: 11.8% / 5.8%;
+  /* positioned, so it also clips overlays drawn outside a screenshot (the share phone's dimming) */
+  position: relative; width: 100%; overflow: hidden; border-radius: 11.8% / 5.8%;
   background: var(--paper);
 }
 .phone .screen::before {
@@ -273,11 +274,18 @@ a:hover { color: var(--sunset-text); }
    4.6% / 91.3% of the screenshot, 75% x 6.8% of it), the screen dims and a share sheet slides up,
    the app icons pop in one by one, Instagram is tapped, then it all slides away and starts over.
    It runs only while the panel is on screen (.play, set by the script in index.html). */
-.share-shot { position: relative; overflow: hidden; container-type: inline-size; }
+/* Not clipped here, so the dimming also covers the phone's status bar above the screenshot; the
+   phone's screen clips everything instead. */
+.share-shot { position: relative; container-type: inline-size; }
 .share-shot > img { display: block; }
 .sh-layer > * { position: absolute; pointer-events: none; }
 .sh-press { left: 4.6%; top: 91.3%; width: 75%; height: 6.8%; border-radius: 999px; background: rgba(20, 60, 64, 0.22); opacity: 0; }
-.sh-dim { inset: 0; background: rgba(46, 43, 41, 0.38); opacity: 0; }
+/* The dimming is a see-through window over the share card (16.67% / 8.08% of the screenshot,
+   66.67% x 61.44% of it) with a huge shadow around it, so everything but the card greys out. */
+.sh-dim {
+  left: 16.67%; top: 8.08%; width: 66.67%; height: 61.44%; border-radius: 3.3cqw;
+  box-shadow: 0 0 0 400cqw rgba(46, 43, 41, 0.38); opacity: 0;
+}
 .sh-sheet {
   left: 0; right: 0; bottom: 0; padding: 5cqw 5cqw 8cqw; background: #fff; border-radius: 6cqw 6cqw 0 0;
   box-shadow: 0 -2cqw 6cqw rgba(46, 43, 41, 0.18); transform: translateY(105%);
