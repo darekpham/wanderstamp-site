@@ -259,7 +259,7 @@ a:hover { color: var(--sunset-text); }
   position: absolute; background: #fff; line-height: 1; white-space: nowrap;
   padding: 0 0.6cqw 0.2cqw 0; font-family: var(--title); font-weight: 800; font-size: 6.32cqw;
 }
-.p-countries { left: 73.98%; top: calc(25.53% - 0.2em); font: 800 3.28cqw/1 'Nunito', sans-serif; color: var(--sunset); min-width: 4.8cqw; }
+.p-countries { right: 9.3%; top: calc(18.85% - 0.17em + 0.35cqw); font-size: 11.1cqw; color: var(--sunset); min-width: 14.5cqw; text-align: right; padding: 0 0 0.2cqw 1cqw; }
 .p-cities { left: 8.43%; top: calc(41.97% - 0.17em); color: var(--teal-deep); min-width: 8.6cqw; }
 .p-regions { left: 39.63%; top: calc(42.02% - 0.17em); color: var(--teal); min-width: 6.9cqw; }
 .p-conts { left: 70.74%; top: calc(41.97% - 0.17em); color: var(--sun); min-width: 3.9cqw; padding-right: 0; }
@@ -267,7 +267,7 @@ a:hover { color: var(--sunset-text); }
   position: absolute; left: 9.35%; top: 29.35%; width: 81.3%; height: 1.2%;
   border-radius: 999px; background: var(--sand); overflow: hidden;
 }
-.pbar i { display: block; height: 100%; width: 54.5%; border-radius: 999px; background: var(--sunset); }
+.pbar i { display: block; height: 100%; width: 18.3%; border-radius: 999px; background: var(--sunset); }
 
 /* The share phone: a loop like a screen recording. Share is tapped (the button sits at
    4.6% / 91.3% of the screenshot, 75% x 6.8% of it), the screen dims and a share sheet slides up,
